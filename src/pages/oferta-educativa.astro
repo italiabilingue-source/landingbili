@@ -1,0 +1,165 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import Card from '../components/Card.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Oferta Educativa" description="Conoce nuestros niveles educativos">
+  <Navbar currentPage="/oferta-educativa" />
+
+  <div class="pt-20"></div>
+
+  <Hero
+    title="Oferta Educativa"
+    subtitle="Educación de calidad desde inicial hasta secundaria"
+  />
+
+  {/* Nivel Inicial */}
+  <section id="inicial" class="max-w-7xl mx-auto px-4 sm:px-6 py-16">
+    <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+      <div>
+        <h2 class="section-title">Nivel Inicial</h2>
+        <p class="text-gray-600 mb-4">
+          Educación infantil para niños de <strong>3 a 5 años</strong>. En esta etapa, fomentamos el desarrollo integral
+          enfocándonos en el aprendizaje lúdico y afectivo.
+        </p>
+        <h4 class="font-bold text-lg mb-3 text-italia-rojo">Características:</h4>
+        <ul class="space-y-2 text-gray-600 mb-6">
+          <li>✓ Grupos reducidos con atención personalizada</li>
+          <li>✓ Ambiente bilingüe inmersivo</li>
+          <li>✓ Articulación con familias</li>
+          <li>✓ Desarrollo de autonomía y creatividad</li>
+          <li>✓ Actividades lúdicas y recreativas</li>
+          <li>✓ Estimulación cognitiva y emocional</li>
+        </ul>
+        <a href="/contacto" class="btn-primary">Solicitar información</a>
+      </div>
+      <div>
+        <img
+          src="https://images.unsplash.com/photo-1503454537688-e6c6ff1b912d?w=500&h=400&fit=crop"
+          alt="Nivel Inicial"
+          class="rounded-lg shadow-lg"
+        />
+      </div>
+    </div>
+  </section>
+
+  {/* Nivel Primario */}
+  <section id="primario" class="bg-gray-50 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <img
+            src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=500&h=400&fit=crop"
+            alt="Nivel Primario"
+            class="rounded-lg shadow-lg"
+          />
+        </div>
+        <div>
+          <h2 class="section-title">Nivel Primario</h2>
+          <p class="text-gray-600 mb-4">
+            Educación primaria para niños de <strong>6 a 12 años</strong>. Formación integral con énfasis en el desarrollo
+            de competencias académicas y habilidades sociales.
+          </p>
+          <h4 class="font-bold text-lg mb-3 text-italia-verde">Características:</h4>
+          <ul class="space-y-2 text-gray-600 mb-6">
+            <li>✓ Currículo bilingüe integrado</li>
+            <li>✓ Metodología basada en proyectos</li>
+            <li>✓ Uso de tecnología educativa</li>
+            <li>✓ Trabajo con Socle de competencias</li>
+            <li>✓ Espacios específicos para las artes</li>
+            <li>✓ Actividades deportivas y recreativas</li>
+          </ul>
+          <a href="/contacto" class="btn-primary">Solicitar información</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Nivel Secundario */}
+  <section id="secundario" class="max-w-7xl mx-auto px-4 sm:px-6 py-16">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <h2 class="section-title">Nivel Secundario</h2>
+        <p class="text-gray-600 mb-4">
+          Educación secundaria para adolescentes de <strong>13 a 18 años</strong>. Preparación para la vida universitaria
+          y profesional con enfoque en el pensamiento crítico.
+        </p>
+        <h4 class="font-bold text-lg mb-3 text-italia-celeste">Características:</h4>
+        <ul class="space-y-2 text-gray-600 mb-6">
+          <li>✓ Programa académico riguroso</li>
+          <li>✓ Preparación para exámenes internacionales</li>
+          <li>✓ Talleres de orientación vocacional</li>
+          <li>✓ Participación en competencias académicas</li>
+          <li>✓ Proyectos de investigación</li>
+          <li>✓ Actividades de responsabilidad social</li>
+        </ul>
+        <a href="/contacto" class="btn-primary">Solicitar información</a>
+      </div>
+      <div>
+        <img
+          src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=500&h=400&fit=crop"
+          alt="Nivel Secundario"
+          class="rounded-lg shadow-lg"
+        />
+      </div>
+    </div>
+  </section>
+
+  {/* Servicios adicionales */}
+  <section class="bg-gray-50 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <h2 class="section-title text-center">Servicios Adicionales</h2>
+      <p class="section-subtitle text-center">Complementamos la educación integral</p>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <Card
+          title="Comedor"
+          description="Servicio de alimentación saludable con menú variado"
+          image="https://images.unsplash.com/photo-1495521821757-a1efb6729352?w=400&h=300&fit=crop"
+        />
+
+        <Card
+          title="Transporte"
+          description="Servicio de transporte seguro a diversos puntos"
+          image="https://images.unsplash.com/photo-1464219414925-bed2b483b3d1?w=400&h=300&fit=crop"
+        />
+
+        <Card
+          title="Actividades Extracurriculares"
+          description="Deportes, artes, música y tecnología"
+          image="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=400&h=300&fit=crop"
+        />
+
+        <Card
+          title="Apoyo Pedagógico"
+          description="Asistencia en dificultades de aprendizaje"
+          image="https://images.unsplash.com/photo-1427504494785-cdae8dfb7d75?w=400&h=300&fit=crop"
+        />
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+
+  <script>
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in-scroll').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+</Layout>

@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-rojo: #CE2B37;
+  --color-verde: #009246;
+  --color-blanco: #FFFFFF;
+  --color-celeste: #0066CC;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Animación fade-in en scroll */
+.fade-in-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+}
+
+.fade-in-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Estilos de botones comunes */
+.btn-primary {
+  @apply px-6 py-3 bg-italia-rojo hover:bg-italia-verde text-white font-semibold rounded-lg transition-all shadow-md hover:shadow-lg;
+}
+
+.btn-secondary {
+  @apply px-6 py-3 border-2 border-italia-rojo text-italia-rojo hover:bg-italia-rojo hover:text-white font-semibold rounded-lg transition-all;
+}
+
+/* Estilos para secciones */
+.section-title {
+  @apply text-3xl md:text-4xl font-bold text-gray-800 mb-4;
+}
+
+.section-subtitle {
+  @apply text-lg text-gray-600 mb-8;
+}

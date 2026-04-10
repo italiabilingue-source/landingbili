@@ -1,0 +1,31 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description || 'Instituto Bilingüe República de Italia - Educación de calidad para todos los niveles'} />
+    <meta name="keywords" content="colegio, educación, bilingüe, inicial, primaria, secundaria" />
+    <meta name="theme-color" content="#CE2B37" />
+    <title>{title} | Instituto Bilingüe República de Italia</title>
+  </head>
+  <body class="bg-white text-gray-800 font-sans">
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+</style>

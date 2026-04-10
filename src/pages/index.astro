@@ -1,0 +1,167 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import Card from '../components/Card.astro';
+import NewsCard from '../components/NewsCard.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Inicio" description="Instituto Bilingüe República de Italia - Educación de calidad para todos">
+  <Navbar currentPage="/" />
+
+  {/* Espaciador para navbar fijo */}
+  <div class="pt-20"></div>
+
+  {/* Hero Section */}
+  <Hero
+    title="Instituto Bilingüe República de Italia"
+    subtitle="Educación de excelencia para cada etapa del crecimiento"
+    backgroundImage="https://images.unsplash.com/photo-1427504494785-cdae8dfb7d75?w=1200&h=500&fit=crop"
+    ctaText="Conoce más"
+    ctaLink="#niveles"
+  />
+
+  {/* Presentación */}
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 py-16">
+    <div class="text-center mb-12">
+      <h2 class="section-title">Bienvenido a nuestro Instituto</h2>
+      <p class="section-subtitle">
+        Formamos personas íntegras preparadas para los desafíos del mundo globalizado
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8 mb-12">
+      <div class="text-center fade-in-scroll">
+        <div class="w-16 h-16 mx-auto mb-4 bg-italia-rojo/10 rounded-full flex items-center justify-center">
+          <span class="text-3xl">🎓</span>
+        </div>
+        <h3 class="font-bold text-lg mb-2">Educación Bilingüe</h3>
+        <p class="text-gray-600">Inglés y español integrados en todas las materias</p>
+      </div>
+
+      <div class="text-center fade-in-scroll">
+        <div class="w-16 h-16 mx-auto mb-4 bg-italia-verde/10 rounded-full flex items-center justify-center">
+          <span class="text-3xl">👥</span>
+        </div>
+        <h3 class="font-bold text-lg mb-2">Atención Personalizada</h3>
+        <p class="text-gray-600">Grupos reducidos y seguimiento individual</p>
+      </div>
+
+      <div class="text-center fade-in-scroll">
+        <div class="w-16 h-16 mx-auto mb-4 bg-italia-celeste/10 rounded-full flex items-center justify-center">
+          <span class="text-3xl">🚀</span>
+        </div>
+        <h3 class="font-bold text-lg mb-2">Innovación Educativa</h3>
+        <p class="text-gray-600">Tecnología y metodología moderna en el aula</p>
+      </div>
+    </div>
+  </section>
+
+  {/* Accesos rápidos a niveles */}
+  <section id="niveles" class="bg-gray-50 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <h2 class="section-title text-center">Nuestros Niveles</h2>
+      <p class="section-subtitle text-center">Educación continua desde inicial hasta secundaria</p>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <Card
+          title="Nivel Inicial"
+          description="Educación infantil para niños de 3 a 5 años. Desarrollo integral con enfoque lúdico y afectivo."
+          image="https://images.unsplash.com/photo-1503454537688-e6c6ff1b912d?w=400&h=300&fit=crop"
+          link="/oferta-educativa#inicial"
+          linkText="Ver más"
+        />
+
+        <Card
+          title="Nivel Primario"
+          description="Educación primaria para niños de 6 a 12 años. Formación integral con énfasis en competencias."
+          image="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=400&h=300&fit=crop"
+          link="/oferta-educativa#primario"
+          linkText="Ver más"
+        />
+
+        <Card
+          title="Nivel Secundario"
+          description="Educación secundaria para adolescentes. Preparación para la vida universitaria y profesional."
+          image="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&h=300&fit=crop"
+          link="/oferta-educativa#secundario"
+          linkText="Ver más"
+        />
+      </div>
+    </div>
+  </section>
+
+  {/* Últimas Noticias */}
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 py-16">
+    <h2 class="section-title">Últimas Noticias</h2>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      <NewsCard
+        date="10 de Abril, 2024"
+        title="Inicio del nuevo ciclo lectivo"
+        excerpt="Con gran entusiasmo iniciamos el ciclo lectivo 2024 con nuevas propuestas pedagógicas..."
+        image="https://images.unsplash.com/photo-1427504494785-cdae8dfb7d75?w=400&h=300&fit=crop"
+        link="/noticias"
+      />
+
+      <NewsCard
+        date="5 de Abril, 2024"
+        title="Competencia inter-escolar de robótica"
+        excerpt="Nuestros estudiantes de secundaria participaron en la competencia regional de robótica..."
+        image="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=300&fit=crop"
+        link="/noticias"
+      />
+
+      <NewsCard
+        date="1 de Abril, 2024"
+        title="Festival cultural: Perspectivas del mundo"
+        excerpt="La comunidad educativa compartió un Festival Cultural donde se presentaron proyectos..."
+        image="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=400&h=300&fit=crop"
+        link="/noticias"
+      />
+    </div>
+
+    <div class="text-center mt-8">
+      <a href="/noticias" class="btn-primary">Ver todas las noticias</a>
+    </div>
+  </section>
+
+  {/* CTA Section */}
+  <section class="bg-gradient-to-r from-italia-rojo to-italia-verde text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">¿Interesado en formar parte de nuestra comunidad?</h2>
+      <p class="text-lg mb-8 text-white/90">Contáctanos para más información o agenda una visita</p>
+      <div class="space-x-4">
+        <a href="/contacto" class="inline-block px-8 py-3 bg-white text-italia-rojo font-bold rounded-lg hover:bg-gray-100 transition">
+          Contactar
+        </a>
+        <a href="https://wa.me/5551234567" target="_blank" rel="noopener noreferrer" class="inline-block px-8 py-3 border-2 border-white text-white font-bold rounded-lg hover:bg-white/10 transition">
+          WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+
+  <script>
+    // Scroll animation
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in-scroll').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+</Layout>

@@ -1,0 +1,110 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import NewsCard from '../components/NewsCard.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Noticias" description="Últimas noticias y novedades del instituto">
+  <Navbar currentPage="/noticias" />
+
+  <div class="pt-20"></div>
+
+  <Hero
+    title="Noticias y Novedades"
+    subtitle="Mantente actualizado con todas las actividades del instituto"
+  />
+
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 py-16">
+    <div class="grid md:grid-cols-3 gap-8 mb-8">
+      <NewsCard
+        date="10 de Abril, 2024"
+        title="Inicio del nuevo ciclo lectivo"
+        excerpt="Con gran entusiasmo iniciamos el ciclo lectivo 2024 con nuevas propuestas pedagógicas, equipamiento tecnológico de última generación y nuestro completo equipo docente listo para acompañar a nuestros estudiantes."
+        image="https://images.unsplash.com/photo-1427504494785-cdae8dfb7d75?w=400&h=300&fit=crop"
+      />
+
+      <NewsCard
+        date="5 de Abril, 2024"
+        title="Competencia inter-escolar de robótica"
+        excerpt="Nuestros estudiantes de secundaria participaron en la competencia regional de robótica, demostrando su creatividad y conocimiento técnico. ¡Felicitaciones a todos!"
+        image="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=300&fit=crop"
+      />
+
+      <NewsCard
+        date="1 de Abril, 2024"
+        title="Festival cultural: Perspectivas del mundo"
+        excerpt="La comunidad educativa compartió un Festival Cultural donde se presentaron proyectos en distintos idiomas, música, danzas y expresiones artísticas de diversas culturas."
+        image="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=400&h=300&fit=crop"
+      />
+
+      <NewsCard
+        date="25 de Marzo, 2024"
+        title="Jornada de ciencias: Experimentos sorprendentes"
+        excerpt="Los alumnos de primaria realizaron experimentos fascinantes en jornadas interactivas donde la ciencia cobró vida en el aula. Una experiencia memorable para todos."
+        image="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=400&h=300&fit=crop"
+      />
+
+      <NewsCard
+        date="20 de Marzo, 2024"
+        title="Excursión educativa al museo de historia"
+        excerpt="Nuestros estudiantes de primaria visitaron el museo, enriqueciendo sus conocimientos históricos a través de una experiencia interactiva y educativa."
+        image="https://images.unsplash.com/photo-1578496781514-db2d14f52d53?w=400&h=300&fit=crop"
+      />
+
+      <NewsCard
+        date="15 de Marzo, 2024"
+        title="Taller de escritura creativa con autor invitado"
+        excerpt="Nos visitó un autor reconocido para compartir técnicas de escritura creativa con nuestros estudiantes de literatura. Una oportunidad única de aprendizaje."
+        image="https://images.unsplash.com/photo-1507842217343-583684e55b3e?w=400&h=300&fit=crop"
+      />
+
+      <NewsCard
+        date="10 de Marzo, 2024"
+        title="Campeonato de fútbol 2024"
+        excerpt="Iniciamos el campeonato interno de fútbol con la participación de todos los niveles. ¡Que comience la competencia deportiva!"
+        image="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=400&h=300&fit=crop"
+      />
+
+      <NewsCard
+        date="5 de Marzo, 2024"
+        title="Semana de la mujer: Charlas inspiradoras"
+        excerpt="Contamos con la presencia de mujeres extraordinarias que compartieron sus historias de éxito y empoderamiento con nuestros estudiantes."
+        image="https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop"
+      />
+
+      <NewsCard
+        date="1 de Marzo, 2024"
+        title="Apertura de inscripciones ciclo 2024"
+        excerpt="¡Hemos ampliado nuestras secciones! Abrimos nuevos espacios para ciclo lectivo 2024. Contáctanos para más información."
+        image="https://images.unsplash.com/photo-1503452537688-e6c6ff1b912d?w=400&h=300&fit=crop"
+      />
+    </div>
+
+    <div class="text-center py-8">
+      <p class="text-gray-600">Estas son las últimas noticias publicadas. ¡Vuelve pronto para más actualizaciones!</p>
+    </div>
+  </section>
+
+  <Footer />
+
+  <script>
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in-scroll').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+</Layout>

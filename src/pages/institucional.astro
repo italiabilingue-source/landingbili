@@ -1,0 +1,179 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import Card from '../components/Card.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Institucional" description="Conoce nuestra historia, valores y proyecto educativo">
+  <Navbar currentPage="/institucional" />
+
+  <div class="pt-20"></div>
+
+  <Hero
+    title="Nuestra Institución"
+    subtitle="Más de una década formando líderes"
+  />
+
+  {/* Historia */}
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 py-16">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <h2 class="section-title">Nuestra Historia</h2>
+        <p class="text-gray-600 mb-4">
+          El Instituto Bilingüe República de Italia fue fundado en 2010 con la visión de brindar educación de calidad
+          que combinara la tradición educativa italiana con la excelencia argentina.
+        </p>
+        <p class="text-gray-600 mb-4">
+          Desde nuestros inicios, hemos comprometido con la formación integral de nuestros estudiantes, desarrollando
+          no solo sus competencias académicas sino también sus valores humanos y creatividad.
+        </p>
+        <p class="text-gray-600">
+          Hoy contamos con una comunidad de más de 800 estudiantes y 100 docentes dedicados a la excelencia educativa.
+        </p>
+      </div>
+      <div>
+        <img
+          src="https://images.unsplash.com/photo-1427504494785-cdae8dfb7d75?w=500&h=400&fit=crop"
+          alt="Institución"
+          class="rounded-lg shadow-lg"
+        />
+      </div>
+    </div>
+  </section>
+
+  {/* Valores */}
+  <section class="bg-gray-50 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <h2 class="section-title text-center">Nuestros Valores</h2>
+      <p class="section-subtitle text-center">Pilares que guían nuestra acción educativa</p>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-white p-8 rounded-lg shadow-lg text-center fade-in-scroll">
+          <div class="text-4xl mb-4">💡</div>
+          <h3 class="font-bold text-lg mb-3 text-italia-rojo">Excelencia</h3>
+          <p class="text-gray-600 text-sm">
+            Compromiso con la calidad en cada aspecto de nuestra gestión educativa
+          </p>
+        </div>
+
+        <div class="bg-white p-8 rounded-lg shadow-lg text-center fade-in-scroll">
+          <div class="text-4xl mb-4">🌍</div>
+          <h3 class="font-bold text-lg mb-3 text-italia-verde">Inclusión</h3>
+          <p class="text-gray-600 text-sm">
+            Respeto por la diversidad y oportunidades para todos nuestros estudiantes
+          </p>
+        </div>
+
+        <div class="bg-white p-8 rounded-lg shadow-lg text-center fade-in-scroll">
+          <div class="text-4xl mb-4">🤝</div>
+          <h3 class="font-bold text-lg mb-3 text-italia-celeste">Responsabilidad</h3>
+          <p class="text-gray-600 text-sm">
+            Compromiso con el desarrollo integral y el bienestar de nuestros estudiantes
+          </p>
+        </div>
+
+        <div class="bg-white p-8 rounded-lg shadow-lg text-center fade-in-scroll">
+          <div class="text-4xl mb-4">🚀</div>
+          <h3 class="font-bold text-lg mb-3 text-italia-rojo">Innovación</h3>
+          <p class="text-gray-600 text-sm">
+            Adopción de nuevas metodologías y tecnología para mejorar la experiencia educativa
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Proyecto Educativo */}
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 py-16">
+    <h2 class="section-title">Proyecto Educativo Institucional</h2>
+
+    <div class="grid md:grid-cols-2 gap-12">
+      <div>
+        <img
+          src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=500&h=400&fit=crop"
+          alt="Proyecto Educativo"
+          class="rounded-lg shadow-lg"
+        />
+      </div>
+      <div>
+        <h3 class="text-2xl font-bold mb-4 text-gray-800">Formación Integral</h3>
+        <p class="text-gray-600 mb-4">
+          Nuestro proyecto educativo se enfoca en el desarrollo de competencias del siglo XXI:
+        </p>
+
+        <ul class="space-y-3">
+          <li class="flex items-start">
+            <span class="text-italia-rojo font-bold mr-3">✓</span>
+            <span class="text-gray-600"><strong>Pensamiento crítico:</strong> Análisis profundo y reflexivo</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-italia-verde font-bold mr-3">✓</span>
+            <span class="text-gray-600"><strong>Creatividad:</strong> Generación de nuevas ideas y soluciones</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-italia-celeste font-bold mr-3">✓</span>
+            <span class="text-gray-600"><strong>Colaboración:</strong> Trabajo en equipo y comunicación efectiva</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-italia-rojo font-bold mr-3">✓</span>
+            <span class="text-gray-600"><strong>Empatía:</strong> Conciencia social y responsabilidad comunitaria</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-italia-verde font-bold mr-3">✓</span>
+            <span class="text-gray-600"><strong>Resiliencia:</strong> Capacidad para adaptarse a cambios</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  {/* Infraestructura */}
+  <section class="bg-gray-50 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <h2 class="section-title text-center">Nuestras Instalaciones</h2>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <Card
+          title="Aulas Modernas"
+          description="Espacios diseñados con tecnología interactiva para potenciar el aprendizaje"
+          image="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=400&h=300&fit=crop"
+        />
+
+        <Card
+          title="Biblioteca Digital"
+          description="Acceso a recursos bibliográficos físicos y digitales de calidad internacional"
+          image="https://images.unsplash.com/photo-1507842217343-583684e55b3e?w=400&h=300&fit=crop"
+        />
+
+        <Card
+          title="Laboratorios"
+          description="Espacios equipados para ciencias, tecnología y robótica educativa"
+          image="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=400&h=300&fit=crop"
+        />
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+
+  <script>
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in-scroll').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+</Layout>
