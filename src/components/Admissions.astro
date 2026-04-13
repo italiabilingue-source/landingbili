@@ -1,0 +1,66 @@
+---
+const steps = [
+  {
+    number: "01",
+    title: "Nos contactás",
+    description: "Completás el formulario o nos escribís por WhatsApp para contarnos sobre tu familia."
+  },
+  {
+    number: "02",
+    title: "Coordinamos una entrevista",
+    description: "Te invitamos al colegio para conocernos y que puedas recorrer nuestras instalaciones."
+  },
+  {
+    number: "03",
+    title: "Encuentro de diagnóstico",
+    description: "Realizamos una pequeña evaluación de competencias según el nivel del alumno."
+  },
+  {
+    number: "04",
+    title: "Bienvenida a la familia",
+    description: "Confirmamos la vacante y completamos la inscripción administrativa."
+  }
+];
+---
+
+<section id="admisiones" class="py-24 bg-surface">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <h2 class="font-headline text-4xl mb-4">Ingreso 2025</h2>
+      <p class="text-on-surface-variant">Un proceso simple y humano para que formes parte de nuestra comunidad.</p>
+    </div>
+
+    <div class="grid md:grid-cols-4 gap-8">
+      {steps.map((step) => (
+        <div class="relative pt-12">
+          <span class="absolute top-0 left-0 text-6xl font-headline font-bold text-primary/5 select-none">
+            {step.number}
+          </span>
+          <div class="relative z-10">
+            <h3 class="font-headline text-xl mb-3 font-bold text-primary">{step.title}</h3>
+            <p class="text-sm text-on-surface-variant leading-relaxed">
+              {step.description}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Final CTA Block -->
+    <div class="mt-20 bg-primary-container p-12 rounded shadow-premium text-white flex flex-col md:flex-row items-center justify-between gap-8">
+      <div class="max-w-xl text-center md:text-left">
+        <h3 class="font-headline text-3xl mb-4">Vení a conocer el colegio</h3>
+        <p class="opacity-90 font-light">
+          Queremos que veas de primera mano cómo es el día a día en el República de Italia. Agendá una visita personalizada.
+        </p>
+      </div>
+      <a 
+        href="https://wa.me/5493442123456" 
+        target="_blank"
+        class="bg-white text-primary px-10 py-4 rounded font-bold uppercase tracking-widest hover:bg-surface transition-all whitespace-nowrap shadow-xl"
+      >
+        Solicitar Visita
+      </a>
+    </div>
+  </div>
+</section>

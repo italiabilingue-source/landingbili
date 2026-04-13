@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>República de Italia | Instituto Bilingüe</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&amp;family=Work+Sans:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface": "#fbf9f8",
+                    "primary-container": "#1976d2",
+                    "surface-container-lowest": "#ffffff",
+                    "error": "#ba1a1a",
+                    "inverse-on-surface": "#f3f0f0",
+                    "secondary-fixed": "#a3f69c",
+                    "surface-container": "#f0eded",
+                    "primary-fixed": "#d4e3ff",
+                    "on-primary-fixed-variant": "#004786",
+                    "surface-bright": "#fbf9f8",
+                    "secondary": "#1b6d24",
+                    "tertiary-container": "#da3734",
+                    "on-error-container": "#93000a",
+                    "on-surface": "#1b1c1c",
+                    "on-background": "#1b1c1c",
+                    "outline": "#717783",
+                    "inverse-primary": "#a5c8ff",
+                    "on-secondary-fixed-variant": "#005312",
+                    "tertiary": "#b61b1f",
+                    "on-secondary-fixed": "#002204",
+                    "outline-variant": "#c1c6d4",
+                    "surface-variant": "#e4e2e1",
+                    "secondary-fixed-dim": "#88d982",
+                    "on-tertiary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "surface-dim": "#dcd9d9",
+                    "on-tertiary-container": "#fffdff",
+                    "on-error": "#ffffff",
+                    "secondary-container": "#a0f399",
+                    "on-primary-container": "#fffdff",
+                    "primary-fixed-dim": "#a5c8ff",
+                    "on-tertiary-fixed": "#410003",
+                    "primary": "#1976d2",
+                    "surface-container-high": "#eae8e7",
+                    "surface-container-low": "#f6f3f2",
+                    "inverse-surface": "#303030",
+                    "background": "#fbf9f8",
+                    "on-secondary-container": "#217128",
+                    "tertiary-fixed": "#ffdad6",
+                    "surface-container-highest": "#e4e2e1",
+                    "tertiary-fixed-dim": "#ffb4ac",
+                    "on-surface-variant": "#414752",
+                    "on-primary-fixed": "#001c3a",
+                    "on-secondary": "#ffffff",
+                    "surface-tint": "#005faf",
+                    "on-primary": "#ffffff",
+                    "on-tertiary-fixed-variant": "#93000e"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Noto Serif"],
+                    "body": ["Work Sans"],
+                    "label": ["Work Sans"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .hero-gradient {
+            background: linear-gradient(to bottom, rgba(25, 118, 210, 0.4), rgba(0, 28, 58, 0.8));
+        }
+        .glass-nav {
+            backdrop-filter: blur(20px);
+            background-color: rgba(251, 249, 248, 0.85);
+        }
+        .ghost-border {
+            border: 1px solid rgba(193, 198, 212, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopNavBar -->
+<nav class="docked full-width top-0 sticky z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-sm dark:shadow-none">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-7xl mx-auto">
+<div class="flex items-center gap-4">
+<img alt="Logo" class="h-10 w-auto" data-alt="Official crest of Instituto Bilingüe República de Italia featuring academic symbols and Italian heritage motifs in elegant blue and gold." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCavmhCkReb68ks-PpBa2nA8vdhg-wLaV9H69TMPQim2F_aRBkWHXtvZ8NneCGwe0yKWEc_ou1kioBg5w-MCoI-ZwP21ynoSDARCpgA-DlrlE5QUzCSdUdcVFZg0l2BuDPXVzNUSsGJRqNiVf8ksMPw4hSIGghqit4FuRYrmG6yZo_fCtJrE69r_TPiqB6NU9JCNJOCJ8nKcoyzd2gg71MpJas9YEGg9KyRFIwOdaxLHu6Jpt1A8vx2lawk7NjWN8-EG-6TYbcXtvmJ"/>
+<span class="font-serif text-xl font-bold text-blue-800 dark:text-blue-300">República de Italia</span>
+</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-600 transition-colors font-medium" href="#">Admisiones</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-600 transition-colors font-medium" href="#">Académico</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-600 transition-colors font-medium" href="#">Bilingüismo</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-600 transition-colors font-medium" href="#">Institucional</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-600 transition-colors font-medium" href="#">Contacto</a>
+<button class="bg-primary text-on-primary px-6 py-2 rounded shadow-sm hover:brightness-110 transition-all font-medium uppercase tracking-wider text-xs">Aula Virtual</button>
+</div>
+</div>
+</nav>
+<main>
+<!-- Section 1: Hero -->
+<section class="relative h-[921px] flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center z-0" data-alt="Wide cinematic shot of a prestigious classical school campus with brick architecture, manicured lawns, and large oak trees in soft morning light." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBGd_AYqdAKcCslrMDX0--24vPWkW0KQq4E31blaYSZAntoh060iJ95Or9_8I38b0YDx2XaAOZGt6Sl8hHxLkNfuYDOL_EoXtGcPPqolstZ0z1n22jzk3zxZ0jfKUur3-6nz_iYZFZw-m8K2qYFXhoaEpjTN8vSBe4KklGPKQ7DRkS3AIfEddPU9jnrTwcqQilJwF7miw-B2FQSacZQCWLabafG7eoElw-uPhFusbiimHXPGcfAkfAgBG34nmoZKcqhn1vLf4y9pG4E');"></div>
+<div class="absolute inset-0 hero-gradient z-10"></div>
+<div class="relative z-20 text-center px-6 max-w-4xl">
+<div class="flex justify-center mb-8">
+<div class="h-24 w-1 bg-secondary inline-block mx-1"></div>
+<div class="h-24 w-1 bg-white inline-block mx-1"></div>
+<div class="h-24 w-1 bg-tertiary inline-block mx-1"></div>
+</div>
+<h1 class="font-headline text-5xl md:text-7xl text-white mb-6 tracking-tight leading-tight">Formando Líderes con Excelencia y Valores</h1>
+<p class="text-white/90 text-lg md:text-xl font-light mb-10 max-w-2xl mx-auto tracking-wide">Educación bilingüe integral con el respaldo de una tradición académica centenaria y visión de futuro global.</p>
+<div class="flex flex-col md:flex-row gap-4 justify-center">
+<button class="bg-primary text-on-primary px-8 py-4 rounded-lg font-semibold hover:brightness-105 transition-all">Iniciar Proceso de Admisión</button>
+<button class="bg-white/10 backdrop-blur-md text-white border border-white/30 px-8 py-4 rounded-lg font-semibold hover:bg-white/20 transition-all">Nuestra Propuesta Educativa</button>
+</div>
+</div>
+</section>
+<!-- Section 2: Educational Pillars -->
+<section class="py-24 px-8 max-w-7xl mx-auto">
+<div class="mb-16">
+<span class="text-primary font-semibold tracking-[0.2em] text-xs uppercase mb-2 block">Nuestra Identidad</span>
+<h2 class="font-headline text-4xl text-on-surface">Pilares de Formación</h2>
+</div>
+<div class="grid md:grid-cols-3 gap-12">
+<div class="group">
+<div class="mb-6 inline-flex items-center justify-center w-12 h-12 rounded bg-surface-container-low text-primary">
+<span class="material-symbols-outlined text-3xl" data-icon="school">school</span>
+</div>
+<h3 class="font-headline text-2xl mb-4">Excelencia Académica</h3>
+<p class="text-on-surface-variant leading-relaxed mb-6">Rigurosidad en el aprendizaje, fomentando el pensamiento crítico y la curiosidad intelectual en cada etapa del desarrollo estudiantil.</p>
+<div class="h-1 w-12 bg-primary transition-all group-hover:w-24"></div>
+</div>
+<div class="group">
+<div class="mb-6 inline-flex items-center justify-center w-12 h-12 rounded bg-surface-container-low text-secondary">
+<span class="material-symbols-outlined text-3xl" data-icon="verified_user">verified_user</span>
+</div>
+<h3 class="font-headline text-2xl mb-4">Valores Éticos</h3>
+<p class="text-on-surface-variant leading-relaxed mb-6">Cultivamos la integridad, el respeto y la responsabilidad social como bases fundamentales para los líderes del mañana.</p>
+<div class="h-1 w-12 bg-secondary transition-all group-hover:w-24"></div>
+</div>
+<div class="group">
+<div class="mb-6 inline-flex items-center justify-center w-12 h-12 rounded bg-surface-container-low text-tertiary">
+<span class="material-symbols-outlined text-3xl" data-icon="public">public</span>
+</div>
+<h3 class="font-headline text-2xl mb-4">Comunidad Global</h3>
+<p class="text-on-surface-variant leading-relaxed mb-6">Inmersión lingüística y cultural que abre puertas al mundo, uniendo la herencia ítalo-argentina con la modernidad.</p>
+<div class="h-1 w-12 bg-tertiary transition-all group-hover:w-24"></div>
+</div>
+</div>
+</section>
+<!-- Section 3: Academic Programs (Asymmetric Layout) -->
+<section class="bg-surface-container-low py-24">
+<div class="max-w-7xl mx-auto px-8">
+<div class="grid md:grid-cols-2 gap-16 items-start">
+<div>
+<h2 class="font-headline text-4xl mb-8">Programas Académicos</h2>
+<p class="text-lg text-on-surface-variant mb-12 max-w-md">Diseñamos trayectorias educativas personalizadas que acompañan el crecimiento natural de nuestros alumnos desde los primeros pasos hasta la universidad.</p>
+<div class="space-y-4">
+<div class="bg-surface-container-lowest p-8 rounded shadow-sm ghost-border hover:shadow-md transition-shadow">
+<div class="flex justify-between items-center mb-4">
+<h4 class="font-headline text-xl">Educación Inicial</h4>
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-xs font-bold uppercase tracking-tighter">Inscripción Abierta</span>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed">Estimulación temprana en un ambiente seguro y creativo, donde el juego y el descubrimiento son los ejes centrales.</p>
+</div>
+<div class="bg-surface-container-lowest p-8 rounded shadow-sm ghost-border hover:shadow-md transition-shadow border-l-4 border-primary">
+<h4 class="font-headline text-xl mb-4">Nivel Primario</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">Consolidación de competencias básicas y bilingüismo intensivo con metodologías innovadoras de enseñanza.</p>
+</div>
+</div>
+</div>
+<div class="space-y-4 md:mt-24">
+<div class="bg-surface-container-lowest p-8 rounded shadow-sm ghost-border hover:shadow-md transition-shadow">
+<h4 class="font-headline text-xl mb-4">Nivel Secundario</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">Formación técnica y humanista con orientación en proyectos internacionales y certificación de idiomas.</p>
+</div>
+<div class="bg-surface-container-lowest p-8 rounded shadow-sm ghost-border hover:shadow-md transition-shadow">
+<h4 class="font-headline text-xl mb-4">Departamento Preparatorio</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">Orientación vocacional y preparación específica para el ingreso a las universidades nacionales e internacionales de mayor prestigio.</p>
+</div>
+<div class="relative overflow-hidden rounded h-64 mt-8">
+<img class="object-cover w-full h-full" data-alt="High school students engaged in a collaborative laboratory experiment, focused expressions, bright modern classroom setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXdbiLYCRuhgYCog6oId587Er0jRGIv8UpcY3bHYN0iOJkbMd0QQPVuu8ZWKr5D-E1h6O_PGZP-8mR75jujhheP8kG5w4GXuvOnlHYnt58lurh3lu0ymwTZA8ccEOKqjYiKnoOMmwRJlSnATSk6G6YlRDHJu_EXzi2nps-XaB2vhYpdEoI4xRUJWWceSX0k8usSt71zyWzCQY4Ax48H-2dL9HVZt4BupnMlYGvEPuvGb2oUnIiDJe9m8DZRge9wPlYCt9CyZNqsElV"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 4: Admissions Process -->
+<section class="py-24 px-8 max-w-7xl mx-auto">
+<div class="text-center mb-16">
+<h2 class="font-headline text-4xl mb-4">Proceso de Admisión 2025</h2>
+<div class="w-20 h-1 bg-primary mx-auto"></div>
+</div>
+<div class="grid md:grid-cols-4 gap-8">
+<div class="relative pt-8">
+<div class="absolute top-0 left-0 text-6xl font-bold text-surface-container-highest opacity-50 font-headline">01</div>
+<div class="relative z-10">
+<h5 class="font-semibold text-lg mb-2">Solicitud Inicial</h5>
+<p class="text-sm text-on-surface-variant">Complete el formulario digital con los datos del aspirante y su grupo familiar.</p>
+</div>
+</div>
+<div class="relative pt-8">
+<div class="absolute top-0 left-0 text-6xl font-bold text-surface-container-highest opacity-50 font-headline">02</div>
+<div class="relative z-10">
+<h5 class="font-semibold text-lg mb-2">Entrevista</h5>
+<p class="text-sm text-on-surface-variant">Reunión con el equipo directivo para conocer nuestra propuesta y objetivos pedagógicos.</p>
+</div>
+</div>
+<div class="relative pt-8">
+<div class="absolute top-0 left-0 text-6xl font-bold text-surface-container-highest opacity-50 font-headline">03</div>
+<div class="relative z-10">
+<h5 class="font-semibold text-lg mb-2">Evaluación</h5>
+<p class="text-sm text-on-surface-variant">Diagnóstico de competencias académicas y lingüísticas según el nivel solicitado.</p>
+</div>
+</div>
+<div class="relative pt-8">
+<div class="absolute top-0 left-0 text-6xl font-bold text-surface-container-highest opacity-50 font-headline">04</div>
+<div class="relative z-10">
+<h5 class="font-semibold text-lg mb-2">Matriculación</h5>
+<p class="text-sm text-on-surface-variant">Confirmación de vacante y entrega de documentación administrativa final.</p>
+</div>
+</div>
+</div>
+<div class="mt-16 bg-primary p-12 rounded-lg text-white flex flex-col md:flex-row items-center justify-between gap-8">
+<div class="max-w-xl">
+<h3 class="font-headline text-3xl mb-4">¿Desea conocer nuestras instalaciones?</h3>
+<p class="opacity-90">Agende una visita guiada personalizada y descubra por qué somos líderes en educación integral.</p>
+</div>
+<button class="bg-white text-primary px-10 py-4 rounded font-bold hover:bg-surface-container-low transition-all whitespace-nowrap">Solicitar Visita</button>
+</div>
+</section>
+<!-- CTA / Map Section -->
+<section class="h-96 w-full relative">
+<div class="absolute inset-0 bg-surface-container-high" data-location="Buenos Aires, Argentina" style=""></div>
+<div class="absolute inset-0 bg-primary/10 flex items-center justify-center">
+<div class="bg-white p-8 rounded shadow-xl max-w-sm border border-outline-variant/15">
+<h4 class="font-headline text-xl mb-4">Visítenos</h4>
+<p class="text-sm text-on-surface-variant mb-6 leading-relaxed">
+                        Av. del Libertador 1234, <br/>
+                        Ciudad Autónoma de Buenos Aires, <br/>
+                        Argentina.
+                    </p>
+<a class="text-primary font-bold text-sm underline flex items-center gap-2" href="#">
+                        Ver en Google Maps
+                        <span class="material-symbols-outlined text-xs" data-icon="open_in_new">open_in_new</span>
+</a>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-slate-100 dark:bg-slate-950 full-width relative border-t border-slate-200/50 dark:border-slate-800/50">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-12 py-10 gap-6 max-w-7xl mx-auto">
+<div class="flex flex-col items-center md:items-start gap-4">
+<span class="font-serif text-lg font-semibold text-slate-800 dark:text-slate-200">República de Italia</span>
+<p class="font-sans text-sm text-slate-600 dark:text-slate-400">© 2024 Instituto Bilingüe República de Italia. Excelencia en Formación Integral.</p>
+</div>
+<div class="flex gap-8">
+<a class="text-slate-500 dark:text-slate-500 hover:underline font-sans text-sm" href="#">Política de Privacidad</a>
+<a class="text-slate-500 dark:text-slate-500 hover:underline font-sans text-sm" href="#">Términos Académicos</a>
+<a class="text-slate-500 dark:text-slate-500 hover:underline font-sans text-sm" href="#">Mapa del Sitio</a>
+<a class="text-slate-500 dark:text-slate-500 hover:underline font-sans text-sm" href="#">Intranet Docente</a>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-slate-400 hover:text-primary cursor-pointer" data-icon="facebook">social_leaderboard</span>
+<span class="material-symbols-outlined text-slate-400 hover:text-primary cursor-pointer" data-icon="camera">camera</span>
+<span class="material-symbols-outlined text-slate-400 hover:text-primary cursor-pointer" data-icon="alternate_email">alternate_email</span>
+</div>
+</div>
+</footer>
+</body></html>

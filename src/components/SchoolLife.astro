@@ -1,0 +1,90 @@
+---
+import { Image } from 'astro:assets';
+import sportsImg from '../assets/life-sports.png';
+import buffetImg from '../assets/life-buffet.png';
+import bilingualImg from '../assets/life-bilingual.png';
+import extracurricularImg from '../assets/life-extracurriculares.png';
+import communityImg from '../assets/life-comunidad.png';
+import academicImg from '../assets/school-front.jpg';
+
+const items = [
+  {
+    title: "Deportes",
+    description: "Actividades físicas, recreativas y competencias que fomentan el trabajo en equipo.",
+    image: sportsImg,
+    color: "bg-secondary"
+  },
+  {
+    title: "Buffet / Comedor",
+    description: "Espacio de encuentro y alimentación saludable supervisada para nuestros alumnos.",
+    image: buffetImg,
+    color: "bg-primary"
+  },
+  {
+    title: "Educación Bilingüe",
+    description: "Inglés integrado desde sala de 3 años para una inmersión lingüística natural.",
+    image: bilingualImg,
+    color: "bg-tertiary"
+  },
+  {
+    title: "Extracurriculares",
+    description: "Talleres de arte, música y proyectos creativos para el desarrollo de talentos.",
+    image: extracurricularImg,
+    color: "bg-secondary"
+  },
+  {
+    title: "Formación Académica",
+    description: "Aprendizaje moderno con acompañamiento docente y herramientas digitales.",
+    image: academicImg,
+    color: "bg-primary"
+  },
+  {
+    title: "Comunidad",
+    description: "Cercanía con las familias y seguimiento personalizado en cada etapa.",
+    image: communityImg,
+    color: "bg-tertiary"
+  }
+];
+---
+
+<section class="py-24 bg-surface-container-low">
+  <div class="max-w-7xl mx-auto px-6 text-center mb-16">
+    <h2 class="font-headline text-4xl md:text-5xl mb-4 text-primary">Vida en el colegio</h2>
+    <p class="text-on-surface-variant font-body font-light text-lg">Una experiencia educativa completa dentro y fuera del aula.</p>
+    <div class="w-24 h-1 bg-secondary mx-auto mt-6"></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {items.map((item) => (
+      <div class="group relative overflow-hidden rounded shadow-premium bg-white h-96 transition-all hover:-translate-y-2">
+        <!-- Image with Zoom effect -->
+        <div class="absolute inset-0 z-0 overflow-hidden">
+          <Image 
+            src={item.image} 
+            alt={item.title} 
+            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-on-surface via-on-surface/40 to-transparent opacity-80 z-10"></div>
+        </div>
+
+        <!-- Content Overlay -->
+        <div class="absolute inset-x-0 bottom-0 p-8 z-20 text-white">
+          <div class={`inline-block px-3 py-1 ${item.color} text-[10px] font-bold uppercase tracking-widest mb-4 rounded-sm`}>
+            {item.title}
+          </div>
+          <h3 class="font-headline text-2xl mb-2 font-bold group-hover:text-secondary transition-colors">
+            {item.title}
+          </h3>
+          <p class="text-white/80 text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            {item.description}
+          </p>
+        </div>
+
+        <!-- Decorative Archival Accents -->
+        <div class="absolute top-0 right-0 p-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity">
+          <span class="material-symbols-outlined text-white/20 text-4xl italic">add</span>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

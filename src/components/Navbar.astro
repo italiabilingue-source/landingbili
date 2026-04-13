@@ -1,93 +1,53 @@
 ---
-export interface Props {
-  currentPage?: string;
-}
-
-const { currentPage } = Astro.props;
-
-interface NavLink {
-  name: string;
-  href: string;
-}
-
-const navLinks: NavLink[] = [
-  { name: 'Inicio', href: '/' },
-  { name: 'Institucional', href: '/institucional' },
-  { name: 'Oferta Educativa', href: '/oferta-educativa' },
-  { name: 'Noticias', href: '/noticias' },
-  { name: 'Galería', href: '/galeria' },
-  { name: 'Contacto', href: '/contacto' },
-];
+import { Image } from 'astro:assets';
+import logoImage from '../assets/logo.jpg';
 ---
 
-<nav class="fixed top-0 w-full bg-white shadow-lg z-50 transition-all">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6">
-    <div class="flex justify-between h-20">
-      {/* Logo */}
-      <div class="flex items-center">
-        <a href="/" class="flex items-center space-x-2">
-          <div class="w-12 h-12 bg-gradient-to-br from-italia-rojo to-italia-verde rounded-lg flex items-center justify-center text-white font-bold text-lg">
-            IBI
-          </div>
-          <span class="hidden sm:inline font-bold text-gray-800 text-sm">
-            Instituto Bilingüe<br/>República de Italia
-          </span>
-        </a>
+<nav class="sticky top-0 z-[90] glass-nav w-full py-4 px-6 md:px-12">
+  <div class="max-w-7xl mx-auto flex justify-between items-center">
+    <!-- Logo & Title -->
+    <a href="/" class="flex items-center gap-3">
+      <Image 
+        src={logoImage} 
+        alt="Logo Instituto República de Italia" 
+        width={48} 
+        height={48} 
+        class="h-10 w-auto"
+      />
+      <div class="flex flex-col">
+        <span class="font-headline font-bold text-primary leading-none text-base md:text-lg tracking-tight">República de Italia</span>
+        <span class="hidden sm:block text-[10px] uppercase tracking-[0.2em] text-on-surface-variant font-medium">Instituto Bilingüe</span>
       </div>
+    </a>
 
-      {/* Menu Desktop */}
-      <div class="hidden md:flex items-center space-x-1">
-        {navLinks.map((link) => (
-          <a
-            href={link.href}
-            class={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
-              currentPage === link.href
-                ? 'bg-italia-rojo text-white'
-                : 'text-gray-700 hover:bg-gray-100'
-            }`}
-          >
-            {link.name}
-          </a>
-        ))}
+    <!-- Desktop Navigation -->
+    <div class="hidden md:flex items-center gap-8">
+      <div class="flex gap-6">
+        <a href="#admisiones" class="text-sm font-medium hover:text-primary transition-colors">Admisiones</a>
+        <a href="#academico" class="text-sm font-medium hover:text-primary transition-colors">Académico</a>
+        <a href="#institucional" class="text-sm font-medium hover:text-primary transition-colors">Institucional</a>
+        <a href="#contacto" class="text-sm font-medium hover:text-primary transition-colors">Contacto</a>
       </div>
-
-      {/* Mobile Menu Button */}
-      <div class="md:hidden flex items-center">
-        <button
-          class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:bg-gray-100"
-          onclick="document.getElementById('mobile-menu').classList.toggle('hidden')"
-        >
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
-        </button>
-      </div>
+      
+      <a 
+        href="#contacto" 
+        class="bg-primary text-white px-6 py-2.5 rounded text-xs font-bold uppercase tracking-wider hover:brightness-110 hover:shadow-lg transition-all"
+      >
+        Solicitar información
+      </a>
     </div>
 
-    {/* Menu Mobile */}
-    <div id="mobile-menu" class="hidden md:hidden pb-4 space-y-2">
-      {navLinks.map((link) => (
-        <a
-          href={link.href}
-          class={`block px-4 py-2 rounded-md text-sm font-medium transition-colors ${
-            currentPage === link.href
-              ? 'bg-italia-rojo text-white'
-              : 'text-gray-700 hover:bg-gray-100'
-          }`}
-        >
-          {link.name}
-        </a>
-      ))}
+    <!-- Mobile CTA & Menu -->
+    <div class="flex items-center gap-3 md:hidden">
+      <a 
+        href="#contacto" 
+        class="bg-primary text-white px-4 py-2 rounded text-[10px] font-bold uppercase tracking-wider"
+      >
+        Pedir Info
+      </a>
+      <button class="text-primary p-1">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
     </div>
   </div>
 </nav>
-
-<script>
-  // Cerrar menú mobile al hacer click en un enlace
-  document.querySelectorAll('#mobile-menu a').forEach(link => {
-    link.addEventListener('click', () => {
-      const menu = document.getElementById('mobile-menu');
-      if (menu) menu.classList.add('hidden');
-    });
-  });
-</script>

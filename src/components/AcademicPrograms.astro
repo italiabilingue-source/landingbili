@@ -1,0 +1,79 @@
+---
+const levels = [
+  {
+    title: "Nivel Inicial",
+    age: "Salas de 3, 4 y 5 años",
+    focus: "Estimulación temprana y juego",
+    differential: "Inmersión natural al inglés y ambiente seguro."
+  },
+  {
+    title: "Nivel Primario",
+    age: "6 a 12 años",
+    focus: "Pensamiento crítico e investigación",
+    differential: "Certificaciones Cambridge y proyectos integradores."
+  },
+  {
+    title: "Nivel Secundario",
+    age: "13 a 18 años",
+    focus: "Liderazgo y formación técnica",
+    differential: "Orientación en Ciencias y convenios universitarios."
+  }
+];
+---
+
+<section id="academico" class="py-24 bg-surface-container-low">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <h2 class="font-headline text-4xl mb-4">Propuesta Académica</h2>
+      <p class="text-on-surface-variant max-w-2xl mx-auto">
+        Formación bilingüe integral para cada etapa del crecimiento, preparando a nuestros alumnos para los desafíos del futuro.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      {levels.map((level) => (
+        <a 
+          href="#contacto" 
+          class="group bg-surface-container-lowest p-8 rounded shadow-premium border-l-4 border-transparent hover:border-primary transition-all flex flex-col h-full"
+        >
+          <h3 class="font-headline text-2xl mb-6 text-primary group-hover:scale-105 transition-transform origin-left">
+            {level.title}
+          </h3>
+          
+          <div class="space-y-4 flex-grow">
+            <div class="flex items-start gap-4">
+              <span class="material-symbols-outlined text-secondary text-sm pt-1">calendar_today</span>
+              <div>
+                <span class="block text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Edad</span>
+                <p class="text-sm font-medium">{level.age}</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <span class="material-symbols-outlined text-secondary text-sm pt-1">psychology</span>
+              <div>
+                <span class="block text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Enfoque</span>
+                <p class="text-sm">{level.focus}</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <span class="material-symbols-outlined text-secondary text-sm pt-1">star</span>
+              <div>
+                <span class="block text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Diferencial</span>
+                <p class="text-sm italic text-on-surface-variant line-clamp-2">
+                  {level.differential}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8 flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
+            Más información
+            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
