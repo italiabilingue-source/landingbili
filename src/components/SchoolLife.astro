@@ -12,77 +12,76 @@ const items = [
     title: "Deportes",
     description: "Actividades físicas, recreativas y competencias que fomentan el trabajo en equipo.",
     image: sportsImg,
-    color: "bg-secondary"
+    span: "lg:col-span-3"
   },
   {
-    title: "Buffet / Comedor",
+    title: "Comedor Estudiantil",
     description: "Espacio de encuentro y alimentación saludable supervisada para nuestros alumnos.",
     image: buffetImg,
-    color: "bg-primary"
+    span: "lg:col-span-3"
   },
   {
     title: "Educación Bilingüe",
     description: "Inglés integrado desde sala de 3 años para una inmersión lingüística natural.",
     image: bilingualImg,
-    color: "bg-tertiary"
+    span: "lg:col-span-2"
   },
   {
     title: "Extracurriculares",
     description: "Talleres de arte, música y proyectos creativos para el desarrollo de talentos.",
     image: extracurricularImg,
-    color: "bg-secondary"
+    span: "lg:col-span-2"
   },
   {
     title: "Formación Académica",
     description: "Aprendizaje moderno con acompañamiento docente y herramientas digitales.",
     image: academicImg,
-    color: "bg-primary"
+    span: "lg:col-span-2"
   },
   {
-    title: "Comunidad",
-    description: "Cercanía con las familias y seguimiento personalizado en cada etapa.",
+    title: "Comunidad Educativa",
+    description: "Cercanía con las familias y seguimiento personalizado en cada etapa de crecimiento.",
     image: communityImg,
-    color: "bg-tertiary"
+    span: "lg:col-span-6"
   }
 ];
 ---
 
-<section class="py-24 bg-surface-container-low">
-  <div class="max-w-7xl mx-auto px-6 text-center mb-16">
-    <h2 class="font-headline text-4xl md:text-5xl mb-4 text-primary">Vida en el colegio</h2>
-    <p class="text-on-surface-variant font-body font-light text-lg">Una experiencia educativa completa dentro y fuera del aula.</p>
-    <div class="w-24 h-1 bg-secondary mx-auto mt-6"></div>
+<section class="py-16 bg-surface-container-low">
+  <div class="w-full px-4 lg:px-8 max-w-[120rem] mx-auto text-center mb-12">
+    <h2 class="font-headline text-5xl md:text-6xl mb-4 text-primary font-bold">Así se vive el colegio</h2>
+    <p class="text-on-surface-variant font-body font-light text-xl">Una experiencia educativa completa dentro y fuera del aula.</p>
+    <div class="w-32 h-1 bg-secondary mx-auto mt-6"></div>
   </div>
 
-  <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+  <div class="w-full px-4 lg:px-8 max-w-[120rem] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 lg:gap-8">
     {items.map((item) => (
-      <div class="group relative overflow-hidden rounded shadow-premium bg-white h-96 transition-all hover:-translate-y-2">
-        <!-- Image with Zoom effect -->
+      <div class={`group relative overflow-hidden rounded-md shadow-lg hover:shadow-2xl transition-shadow duration-500 bg-black min-h-[400px] md:min-h-[500px] ${item.span}`}>
+        <!-- Hero Image with Smooth Zoom -->
         <div class="absolute inset-0 z-0 overflow-hidden">
           <Image 
             src={item.image} 
             alt={item.title} 
-            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            class="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-110"
           />
-          <div class="absolute inset-0 bg-gradient-to-t from-on-surface via-on-surface/40 to-transparent opacity-80 z-10"></div>
+          <!-- Dark Overlay for contrast -->
+          <div class="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition-colors duration-500 z-10"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent z-10"></div>
         </div>
 
-        <!-- Content Overlay -->
-        <div class="absolute inset-x-0 bottom-0 p-8 z-20 text-white">
-          <div class={`inline-block px-3 py-1 ${item.color} text-[10px] font-bold uppercase tracking-widest mb-4 rounded-sm`}>
-            {item.title}
-          </div>
-          <h3 class="font-headline text-2xl mb-2 font-bold group-hover:text-secondary transition-colors">
+        <!-- Content overlayed on image -->
+        <div class="absolute inset-x-0 bottom-0 p-8 md:p-12 z-20 text-white flex flex-col justify-end h-full">
+          <h3 class="font-headline text-3xl md:text-4xl mb-4 font-bold drop-shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
             {item.title}
           </h3>
-          <p class="text-white/80 text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <p class="text-white/90 text-lg leading-relaxed md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 delay-100">
             {item.description}
           </p>
         </div>
 
         <!-- Decorative Archival Accents -->
-        <div class="absolute top-0 right-0 p-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity">
-          <span class="material-symbols-outlined text-white/20 text-4xl italic">add</span>
+        <div class="absolute top-0 right-0 p-6 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+          <span class="material-symbols-outlined text-white text-3xl font-light">open_in_new</span>
         </div>
       </div>
     ))}

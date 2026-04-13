@@ -3,72 +3,67 @@ import { Image } from 'astro:assets';
 import schoolFront from '../assets/school-front.jpg';
 ---
 
-<section class="relative h-[90vh] min-h-[700px] flex items-center justify-center overflow-hidden bg-primary-container">
-  <!-- Background Image with Sophisticated Overlay -->
+<section class="relative h-[95vh] min-h-[700px] flex items-end justify-center overflow-hidden bg-slate-900 pb-24 md:pb-32">
+  <!-- Background Image with Uniform Dark Overlay -->
   <div class="absolute inset-0 z-0">
     <Image 
       src={schoolFront} 
       alt="Frente del Instituto República de Italia en Concepción del Uruguay" 
       class="w-full h-full object-cover scale-105"
     />
-    <!-- Multi-layer gradient for Archival feel -->
-    <div class="absolute inset-0 bg-on-surface/50 z-10 backdrop-blur-[2px]"></div>
-    <div class="absolute inset-0 bg-gradient-to-tr from-on-surface/90 via-primary/20 to-transparent z-10"></div>
-    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-surface z-10"></div>
+    <!-- Uniform dark overlay for maximum contrast -->
+    <div class="absolute inset-0 bg-black/60 z-10"></div>
+    <!-- Soft bottom fade, much less intrusive -->
+    <div class="absolute bottom-0 w-full h-32 bg-gradient-to-t from-surface to-transparent z-10"></div>
   </div>
 
   <!-- Content Container -->
-  <div class="relative z-20 text-center px-6 max-w-6xl mt-8">
+  <div class="relative z-20 text-center px-6 max-w-7xl mx-auto w-full flex flex-col items-center">
     <!-- Refined Tricolor Accent -->
-    <div class="inline-flex items-center gap-1 mb-10 px-4 py-2 bg-on-surface/20 backdrop-blur-md rounded-sm border border-white/5">
+    <div class="inline-flex items-center gap-1 mb-8 px-4 py-2 bg-on-surface/30 backdrop-blur-md rounded-sm border border-white/10">
       <div class="h-4 w-1 bg-secondary rounded-full"></div>
       <div class="h-4 w-1 bg-white rounded-full"></div>
       <div class="h-4 w-1 bg-tertiary rounded-full"></div>
-      <span class="text-[10px] uppercase tracking-[0.3em] font-bold text-white/80 ml-2">Desde 1964</span>
+      <span class="text-[10px] uppercase tracking-[0.3em] font-bold text-white ml-2">Desde 1964</span>
     </div>
 
-    <!-- Typography: Editorial Authority -->
-    <div class="space-y-4">
-      <h1 class="font-headline text-4xl sm:text-5xl md:text-8xl text-white tracking-tight leading-[0.9] font-bold drop-shadow-2xl">
+    <!-- Typography: Maximum Impact -->
+    <div class="space-y-2 mb-10">
+      <h1 class="font-headline text-5xl sm:text-6xl md:text-[5rem] lg:text-[6.5rem] text-white tracking-tight leading-[0.95] font-bold drop-shadow-2xl">
         Educación bilingüe <br class="hidden md:block" />
-        <span class="text-white/40 block md:inline font-light">en </span>
-        <span class="text-white font-normal italic decoration-white/30 underline-offset-8">Concepción del Uruguay</span>
+        <span class="text-white/60 block md:inline font-light text-4xl sm:text-5xl md:text-[4.5rem] lg:text-[5.5rem]">en </span>
+        <span class="text-white font-normal italic">Concepción del Uruguay</span>
       </h1>
       
-      <p class="text-white/80 text-base md:text-xl font-body font-light max-w-2xl mx-auto tracking-wide leading-relaxed pt-6">
-        Un camino educativo desde el jardín hasta la secundaria, <br class="hidden md:block" />
-        formando líderes con excelencia académica y <span class="text-white font-medium italic underline decoration-secondary decoration-2 underline-offset-4">valores humanos</span>.
+      <!-- Shortened, direct subtitle -->
+      <p class="text-white/90 text-lg md:text-2xl font-body font-light max-w-3xl mx-auto tracking-wide leading-relaxed pt-6">
+        Un camino educativo desde el jardín hasta la secundaria. <br class="hidden md:block" />
+        Formando líderes con excelencia y valores.
       </p>
     </div>
 
-    <!-- CTAs with Premium Styling -->
-    <div class="flex flex-col md:flex-row gap-6 justify-center items-center mt-12 bg-on-surface/10 p-4 md:p-2 rounded-lg backdrop-blur-sm border border-white/10 max-w-fit mx-auto">
+    <!-- CTAs: Highly separated, clear hierarchy -->
+    <div class="flex flex-col md:flex-row gap-8 justify-center items-center w-full md:w-auto mt-4">
       <a 
         href="#contacto" 
-        class="bg-white text-primary px-10 py-4 rounded font-bold text-xs uppercase tracking-widest hover:bg-surface transition-all shadow-2xl w-full md:w-auto text-center"
+        class="bg-primary text-white px-12 py-5 rounded-md font-bold text-base uppercase tracking-widest hover:bg-primary/90 transition-all shadow-xl w-full md:w-auto text-center"
       >
         Solicitar información
       </a>
       <a 
         href="https://wa.me/5493442123456" 
         target="_blank"
-        class="text-white hover:text-secondary px-8 py-4 rounded font-bold text-xs uppercase tracking-widest transition-all w-full md:w-auto text-center flex items-center justify-center gap-2"
+        class="text-white border-2 border-white/30 hover:bg-white/10 hover:border-white/50 px-10 py-5 rounded-md font-bold text-base uppercase tracking-widest transition-all w-full md:w-auto text-center flex items-center justify-center gap-3"
       >
-        <span class="material-symbols-outlined text-lg">chat</span>
+        <span class="material-symbols-outlined text-xl">chat</span>
         Contactar por WhatsApp
       </a>
     </div>
   </div>
-
-  <!-- Scroll Indicator -->
-  <div class="absolute bottom-12 left-1/2 -translate-x-1/2 z-20 animate-bounce">
-    <span class="material-symbols-outlined text-white/30 text-3xl">expand_more</span>
-  </div>
 </section>
 
 <style>
-  /* Custom drop shadow for the massive headline */
   h1 {
-    text-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    text-shadow: 0 10px 40px rgba(0,0,0,0.8);
   }
 </style>
