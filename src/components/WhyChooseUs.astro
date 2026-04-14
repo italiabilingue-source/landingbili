@@ -1,39 +1,40 @@
 ---
 const reasons = [
   {
-    icon: "history_edu",
-    title: "Trayectoria",
-    description: "Más de 60 años formando generaciones con un sello de prestigio y compromiso educativo en la comunidad."
+    icon: "groups",
+    title: "Acompañamiento Cercano",
+    description: "Conocemos a cada alumno por su nombre. Creemos en aulas donde los chicos se sienten escuchados, contenidos y seguros."
   },
   {
     icon: "translate",
-    title: "Educación Bilingüe",
-    description: "Inmersión natural en el idioma inglés desde sala de 3, con certificaciones internacionales y enfoque global."
+    title: "Inglés de forma natural",
+    description: "Desde el jardín, el idioma se vive y se juega todos los días, logrando una fluidez real y certificaciones sin esfuerzo forzado."
   },
   {
-    icon: "groups",
-    title: "Acompañamiento Cercano",
-    description: "Grupos reducidos que permiten un seguimiento personalizado de cada alumno y su desarrollo socio-emocional."
+    icon: "favorite",
+    title: "Familia y Colegio",
+    description: "Trabajamos a la par de los padres. Creemos que la mejor educación nace del diálogo constante y la confianza mutua."
   },
   {
-    icon: "military_tech",
-    title: "Formación Integral",
-    description: "Equilibrio entre exigencia académica, valores éticos y el desarrollo de talentos deportivos y artísticos."
+    icon: "palette",
+    title: "Pasión por Aprender",
+    description: "Más allá de los libros, descubren sus talentos a través de talleres de arte, deportes y proyectos que los motivan cada día."
   }
 ];
 ---
 
-<section class="py-24 bg-surface text-on-surface">
+<section id="diferenciales" class="py-24 bg-surface text-on-surface">
   <div class="max-w-7xl mx-auto px-6">
     <div class="mb-16">
-      <h2 class="font-headline text-4xl md:text-5xl mb-4 text-primary">Por qué elegirnos</h2>
+      <span class="text-secondary font-bold tracking-widest uppercase text-xs">Por qué elegirnos</span>
+      <h2 class="font-headline text-4xl md:text-5xl mt-2 mb-4 text-primary">Nuestra propuesta</h2>
       <div class="w-20 h-1 bg-secondary"></div>
     </div>
 
     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
       {reasons.map((reason) => (
         <div class="flex flex-col">
-          <div class="mb-6 text-secondary flex items-center justify-center w-12 h-12 rounded bg-surface-container-low">
+          <div class="mb-6 text-secondary flex items-center justify-center w-12 h-12 rounded bg-surface-container-low shadow-sm">
             <span class="material-symbols-outlined text-3xl">{reason.icon}</span>
           </div>
           <h3 class="font-headline text-xl mb-3 font-bold">{reason.title}</h3>
