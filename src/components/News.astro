@@ -1,0 +1,85 @@
+---
+import { Image } from 'astro:assets';
+import sportsImg from '../assets/life-sports.png';
+import extraImg from '../assets/life-extracurriculares.png';
+import buffetImg from '../assets/life-buffet.png';
+
+const newsItems = [
+  {
+    title: "Torneo Intercolegial de Deportes",
+    date: "14 Abr 2026",
+    category: "Deportes",
+    image: sportsImg,
+    summary: "Nuestros alumnos de secundaria participaron en el encuentro provincial..."
+  },
+  {
+    title: "Muestra de Arte y Tecnología",
+    date: "02 Abr 2026",
+    category: "Actividades",
+    image: extraImg,
+    summary: "Proyectos innovadores y obras artísticas presentadas por todas las salitas y grados."
+  },
+  {
+    title: "Renovación del Comedor Saludable",
+    date: "25 Mar 2026",
+    category: "Institucional",
+    image: buffetImg,
+    summary: "Implementamos un nuevo menú guiado por nutricionistas para el bienestar estudiantil."
+  }
+];
+---
+
+<section id="noticias" class="py-24 bg-surface text-on-surface">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex justify-between items-end mb-16">
+      <div>
+        <span class="text-secondary font-bold tracking-widest uppercase text-xs">Novedades</span>
+        <h2 class="font-headline text-4xl md:text-5xl mt-2 text-primary">Noticias y Eventos</h2>
+      </div>
+      <a href="#" class="hidden md:flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-primary hover:text-secondary transition-colors">
+        Ver todas
+        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+      </a>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      {newsItems.map((item) => (
+        <article class="group bg-surface-container-lowest rounded overflow-hidden shadow-premium flex flex-col hover:-translate-y-1 transition-transform duration-300">
+          <div class="relative h-48 overflow-hidden">
+            <Image 
+              src={item.image} 
+              alt={item.title} 
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+            <div class="absolute top-4 left-4 bg-primary text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-sm shadow-sm backdrop-blur-md bg-opacity-90">
+              {item.category}
+            </div>
+          </div>
+          <div class="p-6 flex flex-col flex-grow">
+            <div class="text-xs text-on-surface-variant font-medium mb-3 flex items-center gap-1">
+              <span class="material-symbols-outlined text-[14px]">calendar_today</span>
+              {item.date}
+            </div>
+            <h3 class="font-headline text-xl font-bold mb-3 group-hover:text-primary transition-colors leading-tight">
+              {item.title}
+            </h3>
+            <p class="text-on-surface-variant text-sm font-light mb-6 flex-grow">
+              {item.summary}
+            </p>
+            <a href="#" class="text-xs font-bold uppercase tracking-widest text-primary hover:text-secondary flex items-center gap-1 mt-auto w-fit">
+              Leer más
+              <span class="material-symbols-outlined text-[14px]">arrow_outward</span>
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+    
+    <div class="mt-12 text-center md:hidden">
+      <a href="#" class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-primary hover:text-secondary transition-colors">
+        Ver todas las noticias
+        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+      </a>
+    </div>
+  </div>
+</section>
