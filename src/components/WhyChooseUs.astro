@@ -2,47 +2,125 @@
 const reasons = [
   {
     icon: "groups",
-    title: "Acompañamiento Cercano",
-    description: "Conocemos a cada alumno por su nombre. Creemos en aulas donde los chicos se sienten escuchados, contenidos y seguros."
+    title: "Comunidad Cercana",
+    description: "Conocemos a cada alumno por su nombre. Aulas donde los chicos se sienten escuchados, contenidos y seguros.",
+    color: "secondary"
   },
   {
     icon: "translate",
-    title: "Inglés de forma natural",
-    description: "Desde el jardín, el idioma se vive y se juega todos los días, logrando una fluidez real y certificaciones sin esfuerzo forzado."
+    title: "Italiano desde el Jardín",
+    description: "El idioma de Italia se vive todos los días con inmersión natural. Certificaciones oficiales reconocidas internacionalmente.",
+    color: "tertiary"
+  },
+  {
+    icon: "sports_soccer",
+    title: "Formación Deportiva",
+    description: "Fútbol, básquet, atletismo, natación y más. El deporte como herramienta de valores, disciplina y trabajo en equipo.",
+    color: "primary"
   },
   {
     icon: "favorite",
-    title: "Familia y Colegio",
-    description: "Trabajamos a la par de los padres. Creemos que la mejor educación nace del diálogo constante y la confianza mutua."
+    title: "Familias y Colegio Unidos",
+    description: "Trabajamos a la par de los padres. La mejor educación nace del diálogo constante y la confianza mutua.",
+    color: "gold"
   },
   {
     icon: "palette",
-    title: "Pasión por Aprender",
-    description: "Más allá de los libros, descubren sus talentos a través de talleres de arte, deportes y proyectos que los motivan cada día."
+    title: "Arte y Creatividad",
+    description: "Talleres de expresión artística, teatro, música y proyectos interdisciplinarios para descubrir talentos únicos.",
+    color: "secondary"
+  },
+  {
+    icon: "emoji_events",
+    title: "Logros Académicos",
+    description: "Excelencia en resultados, proyectos de ciencia, olimpiadas y un acompañamiento que potencia a cada alumno.",
+    color: "primary"
   }
 ];
+
+const colorMap: Record<string, { bg: string; icon: string; border: string }> = {
+  primary: { bg: 'rgba(26,58,110,0.08)', icon: '#1a3a6e', border: '#1a3a6e' },
+  secondary: { bg: 'rgba(26,107,47,0.08)', icon: '#1a6b2f', border: '#1a6b2f' },
+  tertiary: { bg: 'rgba(192,22,42,0.08)', icon: '#c0162a', border: '#c0162a' },
+  gold: { bg: 'rgba(201,162,39,0.08)', icon: '#c9a227', border: '#c9a227' },
+};
 ---
 
-<section id="diferenciales" class="py-24 bg-surface text-on-surface">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="mb-16">
-      <span class="text-secondary font-bold tracking-widest uppercase text-xs">Por qué elegirnos</span>
-      <h2 class="font-headline text-4xl md:text-5xl mt-2 mb-4 text-primary">Nuestra propuesta</h2>
-      <div class="w-20 h-1 bg-secondary"></div>
+<section id="diferenciales" class="py-28 bg-surface text-on-surface overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 md:px-10">
+
+    <!-- Section Header -->
+    <div class="mb-20 reveal">
+      <div class="section-label mb-4">Por qué elegirnos</div>
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+        <h2 class="font-headline text-4xl md:text-5xl lg:text-6xl text-on-surface max-w-xl leading-tight">
+          Una propuesta<br/>
+          <span class="italic font-normal" style="font-family: 'Cormorant Garamond', serif; color: #1a3a6e;">completa e integral</span>
+        </h2>
+        <p class="text-on-surface-variant font-body font-light max-w-sm md:text-right text-[15px] leading-relaxed">
+          Más de 60 años formando personas. No solo enseñamos contenidos: formamos ciudadanos con identidad, valores y raíces.
+        </p>
+      </div>
+      <!-- Tricolor bar -->
+      <div class="tricolor-bar mt-8">
+        <span></span><span></span><span></span>
+      </div>
     </div>
 
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
-      {reasons.map((reason) => (
-        <div class="flex flex-col">
-          <div class="mb-6 text-secondary flex items-center justify-center w-12 h-12 rounded bg-surface-container-low shadow-sm">
-            <span class="material-symbols-outlined text-3xl">{reason.icon}</span>
+    <!-- Cards Grid -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+      {reasons.map((reason, i) => {
+        const c = colorMap[reason.color];
+        return (
+          <div 
+            class={`reveal group relative p-8 rounded-xl bg-surface-container-lowest hover:shadow-[0_16px_48px_rgba(10,25,60,0.12)] transition-all duration-500 border border-transparent hover:border-outline-variant/20 cursor-default delay-${(i % 3) * 100}`}
+          >
+            <!-- Icon -->
+            <div 
+              class="w-14 h-14 rounded-xl flex items-center justify-center mb-6 transition-transform duration-500 group-hover:scale-110"
+              style={`background: ${c.bg};`}
+            >
+              <span 
+                class="material-symbols-outlined text-3xl"
+                style={`color: ${c.icon}; font-variation-settings: 'FILL' 1, 'wght' 300, 'GRAD' 0, 'opsz' 24;`}
+              >
+                {reason.icon}
+              </span>
+            </div>
+
+            <h3 class="font-headline text-xl font-bold mb-3 text-on-surface group-hover:text-primary transition-colors duration-300">
+              {reason.title}
+            </h3>
+            <p class="text-on-surface-variant text-sm leading-relaxed font-body font-light">
+              {reason.description}
+            </p>
+
+            <!-- Bottom accent line on hover -->
+            <div 
+              class="absolute bottom-0 left-0 right-0 h-0.5 rounded-b-xl scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"
+              style={`background: ${c.border};`}
+            ></div>
           </div>
-          <h3 class="font-headline text-xl mb-3 font-bold">{reason.title}</h3>
-          <p class="text-on-surface-variant leading-relaxed text-sm">
-            {reason.description}
-          </p>
-        </div>
-      ))}
+        );
+      })}
     </div>
+
+    <!-- Bottom banner -->
+    <div class="mt-20 reveal reveal-delay-4 rounded-2xl overflow-hidden bg-gradient-to-r from-primary via-primary-light to-primary-container p-10 md:p-14 text-white flex flex-col md:flex-row items-center justify-between gap-8">
+      <div>
+        <p class="text-white/60 text-xs uppercase tracking-widest font-bold mb-2 font-body">Una comunidad que te espera</p>
+        <h3 class="font-headline text-3xl md:text-4xl font-bold leading-tight">¿Querés conocer el colegio en persona?</h3>
+      </div>
+      <div class="flex flex-col sm:flex-row gap-4 shrink-0">
+        <a 
+          href="#contacto"
+          class="inline-flex items-center gap-2 bg-white text-primary font-bold text-sm uppercase tracking-widest px-8 py-4 rounded hover:bg-surface transition-colors shadow-lg"
+        >
+          <span class="material-symbols-outlined text-[18px]">location_on</span>
+          Agendá una visita
+        </a>
+      </div>
+    </div>
+
   </div>
 </section>

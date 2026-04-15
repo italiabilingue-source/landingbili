@@ -1,38 +1,135 @@
 ---
+import { Image } from 'astro:assets';
+import logoImage from '../assets/logo.jpg';
 ---
-<footer class="bg-primary text-white py-16 px-6">
-  <div class="max-w-7xl mx-auto">
-    <div class="grid md:grid-cols-3 gap-12 mb-12">
-      <!-- Brand -->
-      <div>
-        <h3 class="font-headline text-2xl font-bold mb-4">República de Italia</h3>
-        <p class="text-white/70 text-sm leading-relaxed max-w-xs">
-          Excelencia académica y formación bilingüe en el corazón de Concepción del Uruguay. Más de 60 años educando con valores.
+
+<footer class="bg-on-surface text-white overflow-hidden relative">
+  
+  <!-- Italian flag top strip -->
+  <div class="w-full h-1 flex">
+    <div class="flex-1 bg-secondary"></div>
+    <div class="flex-1 bg-white/30"></div>
+    <div class="flex-1 bg-tertiary"></div>
+  </div>
+
+  <!-- Main footer content -->
+  <div class="max-w-7xl mx-auto px-6 md:px-10 pt-16 pb-10">
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+
+      <!-- Brand Column -->
+      <div class="lg:col-span-2">
+        <div class="flex items-center gap-3 mb-6">
+          <Image 
+            src={logoImage}
+            alt="Logo Instituto República de Italia"
+            width={48}
+            height={48}
+            class="h-12 w-auto rounded-md opacity-90"
+          />
+          <div>
+            <span class="font-headline font-bold text-white text-lg block leading-none">República de Italia</span>
+            <span class="text-white/40 text-[10px] uppercase tracking-[0.25em] font-body font-medium">Istituto Bilingue · CDU</span>
+          </div>
+        </div>
+
+        <p class="text-white/50 text-sm font-body font-light leading-relaxed max-w-sm mb-8">
+          Más de 60 años formando personas con identidad, valores y bilinguismo ítalo-español en el corazón de Concepción del Uruguay, Entre Ríos.
         </p>
+
+        <!-- Italian flag decoration -->
+        <div class="flex items-center gap-3 mb-8">
+          <div class="flex h-5 w-10 rounded overflow-hidden shadow-sm">
+            <div class="flex-1 bg-secondary"></div>
+            <div class="flex-1 bg-white"></div>
+            <div class="flex-1 bg-tertiary"></div>
+          </div>
+          <span class="text-white/30 text-[11px] font-body uppercase tracking-widest">Bilingüismo Italiano · Español</span>
+        </div>
+
+        <!-- Social links -->
+        <div class="flex gap-3">
+          {[
+            { icon: 'facebook', label: 'Facebook', href: '#' },
+            { icon: 'instagram', label: 'Instagram', href: '#' },
+          ].map(social => (
+            <a 
+              href={social.href}
+              aria-label={social.label}
+              class="w-10 h-10 rounded-xl border border-white/10 flex items-center justify-center text-white/40 hover:text-white hover:border-white/25 hover:bg-white/5 transition-all duration-300"
+            >
+              <span class="material-symbols-outlined text-[18px]">{social.icon}</span>
+            </a>
+          ))}
+          <a 
+            href="https://wa.me/5493442123456"
+            target="_blank"
+            aria-label="WhatsApp"
+            class="w-10 h-10 rounded-xl border border-white/10 flex items-center justify-center text-white/40 hover:text-white hover:border-secondary/50 hover:bg-secondary/10 transition-all duration-300"
+          >
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+              <path d="M12 0C5.373 0 0 5.373 0 12c0 2.134.558 4.134 1.533 5.875L.054 23.25c-.09.36.216.666.576.576l5.508-1.433A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.9A9.9 9.9 0 012.1 12 9.9 9.9 0 0112 2.1a9.9 9.9 0 019.9 9.9A9.9 9.9 0 0112 21.9z"/>
+            </svg>
+          </a>
+        </div>
       </div>
 
-      <!-- Quick Links -->
-      <div class="flex flex-col gap-3">
-        <h4 class="font-bold text-xs uppercase tracking-[0.2em] mb-4 text-white/50">Navegación</h4>
-        <a href="#admisiones" class="hover:text-secondary transition-colors text-sm">Proceso de Admisión</a>
-        <a href="#academico" class="hover:text-secondary transition-colors text-sm">Propuesta Educativa</a>
-        <a href="#institucional" class="hover:text-secondary transition-colors text-sm">Nuestra Historia</a>
-        <a href="#contacto" class="hover:text-secondary transition-colors text-sm">Trabajá con nosotros</a>
+      <!-- Navigation -->
+      <div>
+        <h4 class="font-body font-bold text-[11px] uppercase tracking-[0.22em] text-white/35 mb-6">El colegio</h4>
+        <nav class="flex flex-col gap-3">
+          {[
+            { href: '#niveles', label: 'Jardín, Primaria y Secundaria' },
+            { href: '#vida-escolar', label: 'Vida en el colegio' },
+            { href: '#italiano', label: 'Bilingüismo italiano' },
+            { href: '#deportes', label: 'Deportes' },
+            { href: '#confianza', label: 'Nuestra historia' },
+            { href: '#noticias', label: 'Noticias y eventos' },
+          ].map(link => (
+            <a href={link.href} class="text-sm text-white/50 hover:text-white transition-colors duration-200 font-body hover:translate-x-0.5 transform inline-block">
+              {link.label}
+            </a>
+          ))}
+        </nav>
       </div>
 
-      <!-- Legal -->
-      <div class="flex flex-col gap-3">
-        <h4 class="font-bold text-xs uppercase tracking-[0.2em] mb-4 text-white/50">Legal</h4>
-        <a href="#" class="hover:text-secondary transition-colors text-sm opacity-50">Política de Privacidad</a>
-        <a href="#" class="hover:text-secondary transition-colors text-sm opacity-50">Términos Académicos</a>
+      <!-- Contact quick -->
+      <div>
+        <h4 class="font-body font-bold text-[11px] uppercase tracking-[0.22em] text-white/35 mb-6">Contacto rápido</h4>
+        <div class="flex flex-col gap-5">
+          <div class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-[16px] mt-0.5 text-secondary shrink-0" style="font-variation-settings:'FILL' 1,'wght' 300,'GRAD' 0,'opsz' 20;">location_on</span>
+            <p class="text-sm text-white/50 font-body font-light leading-relaxed">Av. del Libertador 1234,<br/>Concepción del Uruguay, E.R.</p>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-[16px] text-secondary shrink-0" style="font-variation-settings:'FILL' 1,'wght' 300,'GRAD' 0,'opsz' 20;">mail</span>
+            <a href="mailto:informes@itbili.edu.ar" class="text-sm text-white/50 hover:text-white transition-colors font-body">informes@itbili.edu.ar</a>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-[16px] text-secondary shrink-0" style="font-variation-settings:'FILL' 1,'wght' 300,'GRAD' 0,'opsz' 20;">phone_iphone</span>
+            <a href="https://wa.me/5493442123456" target="_blank" class="text-sm font-bold text-white/70 hover:text-white transition-colors font-body">+54 9 3442 12-3456</a>
+          </div>
+
+          <a 
+            href="#admisiones"
+            class="mt-2 inline-flex items-center gap-2 border border-white/15 text-white/60 hover:text-white hover:border-white/30 text-xs font-bold uppercase tracking-widest px-5 py-2.5 rounded-lg transition-all duration-300 font-body"
+          >
+            <span class="material-symbols-outlined text-[14px]">school</span>
+            Inscripciones 2026
+          </a>
+        </div>
       </div>
     </div>
 
-    <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] uppercase tracking-widest text-white/30 font-bold">
-      <p>© 2024 Instituto Bilingüe República de Italia. Todos los derechos reservados.</p>
-      <div class="flex gap-6">
-        <span>C. del Uruguay, Entre Ríos</span>
-        <span>Artesanalmente diseñado</span>
+    <!-- Bottom bar -->
+    <div class="pt-8 border-t border-white/8 flex flex-col sm:flex-row justify-between items-center gap-4">
+      <p class="text-[11px] text-white/25 font-body uppercase tracking-widest">
+        © 2026 Instituto Bilingüe República de Italia · Todos los derechos reservados
+      </p>
+      <div class="flex items-center gap-6 text-[11px] text-white/25 font-body uppercase tracking-widest">
+        <a href="#" class="hover:text-white/50 transition-colors">Privacidad</a>
+        <span>·</span>
+        <span>Concepción del Uruguay, Entre Ríos</span>
       </div>
     </div>
   </div>

@@ -1,0 +1,205 @@
+---
+
+// Italian quotes / phrases rotating banner data
+const italianPhrases = [
+  { it: "La cultura è la nostra radice.", es: "La cultura es nuestra raíz." },
+  { it: "Imparare è un viaggio continuo.", es: "Aprender es un viaje continuo." },
+  { it: "La scuola è la seconda casa.", es: "La escuela es el segundo hogar." },
+  { it: "Il futuro appartiene a chi impara.", es: "El futuro pertenece a quien aprende." },
+];
+
+const certifications = [
+  { name: "PLIDA", full: "Progetto Lingua Italiana Dante Alighieri", level: "A1 → C2", org: "Società Dante Alighieri" },
+  { name: "CILS", full: "Certificazione Italiana Lingua Straniera", level: "A1 → C2", org: "Università di Siena" },
+];
+
+const sports = [
+  { name: "Fútbol", icon: "sports_soccer" },
+  { name: "Básquetbol", icon: "sports_basketball" },
+  { name: "Atletismo", icon: "directions_run" },
+  { name: "Natación", icon: "pool" },
+  { name: "Voleibol", icon: "sports_volleyball" },
+  { name: "Tenis de Mesa", icon: "sports_tennis" },
+  { name: "Handball", icon: "sports_handball" },
+  { name: "Ajedrez", icon: "chess" },
+];
+---
+
+<!-- ===== ITALIAN CULTURAL SECTION ===== -->
+<section id="italiano" class="relative py-28 overflow-hidden" style="background: #0e1c35;">
+
+  <!-- Background subtle texture -->
+  <div class="absolute inset-0 opacity-5" style="background-image: url('data:image/svg+xml,<svg width=\'60\' height=\'60\' xmlns=\'http://www.w3.org/2000/svg\'><path d=\'M0 0h60v60H0z\' fill=\'none\'/><path d=\'M30 0v60M0 30h60\' stroke=\'%23fff\' stroke-width=\'0.5\'/></svg>');"></div>
+  
+  <!-- Decorative Italy flag vertical bars -->
+  <div class="absolute left-0 top-0 bottom-0 w-2 flex flex-col pointer-events-none">
+    <div class="flex-1 bg-secondary opacity-60"></div>
+    <div class="flex-1 bg-white opacity-20"></div>
+    <div class="flex-1 bg-tertiary opacity-60"></div>
+  </div>
+  <div class="absolute right-0 top-0 bottom-0 w-2 flex flex-col pointer-events-none">
+    <div class="flex-1 bg-tertiary opacity-60"></div>
+    <div class="flex-1 bg-white opacity-20"></div>
+    <div class="flex-1 bg-secondary opacity-60"></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-10 md:px-16">
+
+    <!-- Label + title -->
+    <div class="text-center mb-20 reveal">
+      <div class="section-label justify-center mb-4" style="color: #c9a227;">
+        <span></span>L'italiano al centro
+      </div>
+      <h2 class="font-headline text-4xl md:text-5xl lg:text-6xl text-white leading-tight mb-6">
+        El italiano no es<br/>
+        <span class="italic font-normal" style="font-family:'Cormorant Garamond',serif; color: #c9a227;">una materia más</span>
+      </h2>
+      <p class="text-white/55 font-body font-light max-w-2xl mx-auto text-[15px] leading-relaxed">
+        En el Instituto República de Italia, el idioma de Dante Alighieri es el núcleo de nuestra identidad. Desde sala de 3 años, nuestros alumnos viven el italiano como lengua propia, logrando certificaciones reconocidas en todo el mundo.
+      </p>
+    </div>
+
+    <!-- Rotating phrase display -->
+    <div class="mb-20 reveal">
+      <div id="phrase-container" class="text-center py-12 border-y border-white/10 relative overflow-hidden">
+        {italianPhrases.map((phrase, i) => (
+          <div class={`phrase-slide absolute inset-0 flex flex-col items-center justify-center transition-all duration-700 ${i === 0 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} data-index={i}>
+            <p class="font-italian text-2xl md:text-4xl text-white/90 italic mb-3 px-4" style="font-family:'Cormorant Garamond',serif;">
+              "{phrase.it}"
+            </p>
+            <p class="text-white/40 text-sm font-body font-light tracking-wide">{phrase.es}</p>
+          </div>
+        ))}
+        <!-- Dots -->
+        <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+          {italianPhrases.map((_, i) => (
+            <button class="phrase-dot w-1.5 h-1.5 rounded-full transition-all duration-300 bg-white/25 hover:bg-white/60" data-dot={i} aria-label={`Frase ${i+1}`}></button>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- Certifications -->
+    <div class="grid md:grid-cols-2 gap-6 mb-20">
+      {certifications.map((cert, i) => (
+        <div class={`reveal delay-${i * 200} group p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm hover:bg-white/8 hover:border-gold/30 transition-all duration-400`}>
+          <div class="flex items-start gap-5">
+            <div class="w-16 h-16 rounded-xl flex items-center justify-center shrink-0" style="background: rgba(201,162,39,0.15);">
+              <span class="font-headline font-bold text-xl" style="color: #c9a227;">{cert.name}</span>
+            </div>
+            <div>
+              <h4 class="font-headline text-lg font-bold text-white mb-1">{cert.full}</h4>
+              <p class="text-white/50 text-xs font-body uppercase tracking-widest mb-3">{cert.org}</p>
+              <div class="flex items-center gap-2">
+                <span class="text-[11px] font-bold uppercase tracking-widest px-3 py-1 rounded-full border font-body" style="border-color: rgba(201,162,39,0.4); color: #c9a227;">
+                  Niveles {cert.level}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Key facts row -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 reveal">
+      {[
+        { n: 60, suffix: '+', label: 'Años enseñando italiano' },
+        { n: 3, suffix: '', label: 'Generaciones de egresados' },
+        { n: 100, suffix: '%', label: 'De los alumnos certifica' },
+        { n: 2, suffix: '', label: 'Certificaciones oficiales' },
+      ].map((stat, i) => (
+        <div class={`text-center p-6 rounded-xl border border-white/8 bg-white/4 delay-${i * 100}`}>
+          <div class="font-headline text-4xl font-bold mb-1 text-white">
+            <span data-target={stat.n} data-suffix={stat.suffix}>{stat.n}{stat.suffix}</span>
+          </div>
+          <p class="text-white/45 text-[11px] uppercase tracking-widest font-body font-medium">{stat.label}</p>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== SPORTS SECTION ===== -->
+<section id="deportes" class="py-28 bg-surface text-on-surface overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 md:px-10">
+    
+    <!-- Header -->
+    <div class="mb-16 flex flex-col md:flex-row md:items-end md:justify-between gap-8 reveal">
+      <div>
+        <div class="section-label mb-4">Deporte y Formación</div>
+        <h2 class="font-headline text-4xl md:text-5xl lg:text-6xl text-on-surface leading-tight">
+          El deporte forma<br/>
+          <span class="italic font-normal" style="font-family:'Cormorant Garamond',serif; color: #1a3a6e;">el carácter</span>
+        </h2>
+      </div>
+      <p class="text-on-surface-variant font-body font-light max-w-sm text-sm leading-relaxed md:text-right">
+        Creemos que el deporte es una herramienta fundamental para enseñar disciplina, respeto, trabajo en equipo y superación personal.
+      </p>
+    </div>
+
+    <!-- Sports pills grid -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-16">
+      {sports.map((sport, i) => (
+        <div class={`reveal group flex flex-col items-center gap-3 p-6 rounded-2xl bg-surface-container-lowest border border-outline-variant/10 hover:border-primary/20 hover:bg-primary/4 hover:shadow-card transition-all duration-400 cursor-default delay-${Math.min(i * 80, 560)}`}>
+          <div class="w-14 h-14 rounded-xl bg-primary/8 flex items-center justify-center group-hover:bg-primary/15 transition-colors duration-300">
+            <span class="material-symbols-outlined text-3xl text-primary" style="font-variation-settings:'FILL' 1,'wght' 300,'GRAD' 0,'opsz' 24;">{sport.icon}</span>
+          </div>
+          <span class="text-sm font-medium text-on-surface font-body text-center">{sport.name}</span>
+        </div>
+      ))}
+    </div>
+
+    <!-- CTA strip -->
+    <div class="reveal rounded-2xl bg-surface-container-lowest border border-outline-variant/15 p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-4">
+        <div class="w-14 h-14 rounded-xl bg-secondary/10 flex items-center justify-center shrink-0">
+          <span class="material-symbols-outlined text-3xl text-secondary" style="font-variation-settings:'FILL' 1,'wght' 300,'GRAD' 0,'opsz' 24;">emoji_events</span>
+        </div>
+        <div>
+          <h4 class="font-headline text-xl font-bold text-on-surface">Competencias intercolegiales</h4>
+          <p class="text-on-surface-variant text-sm font-body font-light">Participamos en torneos provinciales y nacionales en múltiples disciplinas.</p>
+        </div>
+      </div>
+      <a 
+        href="#contacto"
+        class="shrink-0 inline-flex items-center gap-2 bg-secondary text-white px-7 py-3.5 rounded font-bold text-xs uppercase tracking-widest hover:bg-secondary-light transition-colors shadow-md"
+      >
+        Más información
+        <span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  // Rotating Italian phrases
+  const slides = document.querySelectorAll('.phrase-slide');
+  const dots = document.querySelectorAll('.phrase-dot');
+  let currentPhrase = 0;
+
+  function goToPhrase(n: number) {
+    slides.forEach((s, i) => {
+      const el = s as HTMLElement;
+      el.style.opacity = i === n ? '1' : '0';
+      el.style.transform = i === n ? 'translateY(0)' : 'translateY(32px)';
+    });
+    dots.forEach((d, i) => {
+      (d as HTMLElement).style.background = i === n ? 'rgba(255,255,255,0.8)' : 'rgba(255,255,255,0.25)';
+    });
+    currentPhrase = n;
+  }
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => goToPhrase(i));
+  });
+
+  // Auto-rotate every 4s
+  if (slides.length > 0) {
+    setInterval(() => {
+      goToPhrase((currentPhrase + 1) % slides.length);
+    }, 4000);
+  }
+</script>

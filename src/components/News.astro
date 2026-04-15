@@ -6,80 +6,103 @@ import buffetImg from '../assets/life-buffet.png';
 
 const newsItems = [
   {
-    title: "Torneo Intercolegial de Deportes",
+    title: "Torneo Intercolegial: Nuestros alumnos brillaron en atletismo",
     date: "14 Abr 2026",
     category: "Deportes",
+    categoryColor: "#1a6b2f",
     image: sportsImg,
-    summary: "Nuestros alumnos de secundaria participaron en el encuentro provincial..."
+    summary: "Más de 40 alumnos de la secundaria representaron al colegio en el encuentro provincial, logrando tres podios en distintas categorías."
   },
   {
-    title: "Muestra de Arte y Tecnología",
+    title: "Muestra Anual de Arte, Ciencia y Tecnología",
     date: "02 Abr 2026",
     category: "Actividades",
+    categoryColor: "#1a3a6e",
     image: extraImg,
-    summary: "Proyectos innovadores y obras artísticas presentadas por todas las salitas y grados."
+    summary: "Proyectos innovadores y obras artísticas presentadas por todas las salitas y grados, con jurado invitado de la UNI."
   },
   {
-    title: "Renovación del Comedor Saludable",
+    title: "Nuevo programa de alimentación saludable en el Comedor",
     date: "25 Mar 2026",
     category: "Institucional",
+    categoryColor: "#c0162a",
     image: buffetImg,
-    summary: "Implementamos un nuevo menú guiado por nutricionistas para el bienestar estudiantil."
+    summary: "Implementamos un nuevo menú guiado por nutricionistas, con opciones veganas y sin gluten para garantizar el bienestar de todos."
   }
 ];
 ---
 
-<section id="noticias" class="py-24 bg-surface text-on-surface">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="flex justify-between items-end mb-16">
+<section id="noticias" class="py-28 bg-surface-container-low text-on-surface overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 md:px-10">
+
+    <!-- Header -->
+    <div class="mb-16 flex flex-col md:flex-row md:items-end md:justify-between gap-6 reveal">
       <div>
-        <span class="text-secondary font-bold tracking-widest uppercase text-xs">Novedades</span>
-        <h2 class="font-headline text-4xl md:text-5xl mt-2 text-primary">Noticias y Eventos</h2>
+        <div class="section-label mb-4">Novedades institucionales</div>
+        <h2 class="font-headline text-4xl md:text-5xl text-on-surface leading-tight">
+          Noticias y<br/>
+          <span class="italic font-normal" style="font-family:'Cormorant Garamond',serif; color: #c0162a;">eventos recientes</span>
+        </h2>
       </div>
-      <a href="#" class="hidden md:flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-primary hover:text-secondary transition-colors">
-        Ver todas
-        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+      <a 
+        href="#" 
+        class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest group font-body"
+        style="color: #1a3a6e;"
+      >
+        Ver todas las noticias
+        <span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
       </a>
     </div>
 
-    <div class="grid md:grid-cols-3 gap-8">
-      {newsItems.map((item) => (
-        <article class="group bg-surface-container-lowest rounded overflow-hidden shadow-premium flex flex-col hover:-translate-y-1 transition-transform duration-300">
-          <div class="relative h-48 overflow-hidden">
+    <!-- News Grid -->
+    <div class="grid md:grid-cols-3 gap-6 md:gap-8">
+      {newsItems.map((item, i) => (
+        <article class={`reveal group bg-surface-container-lowest rounded-2xl overflow-hidden border border-outline-variant/10 hover:shadow-premium transition-all duration-500 hover:-translate-y-1.5 flex flex-col delay-${i * 150}`}>
+          
+          <!-- Image -->
+          <div class="relative h-52 overflow-hidden">
             <Image 
               src={item.image} 
               alt={item.title} 
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
             />
-            <div class="absolute top-4 left-4 bg-primary text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-sm shadow-sm backdrop-blur-md bg-opacity-90">
+            <!-- Category badge -->
+            <div 
+              class="absolute top-4 left-4 text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full text-white font-body shadow-md backdrop-blur-sm"
+              style={`background: ${item.categoryColor}cc;`}
+            >
               {item.category}
             </div>
+            <!-- Gradient fade bottom -->
+            <div class="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-surface-container-lowest to-transparent"></div>
           </div>
-          <div class="p-6 flex flex-col flex-grow">
-            <div class="text-xs text-on-surface-variant font-medium mb-3 flex items-center gap-1">
-              <span class="material-symbols-outlined text-[14px]">calendar_today</span>
+
+          <!-- Content -->
+          <div class="p-7 flex flex-col flex-grow">
+            <div class="flex items-center gap-1.5 text-[11px] text-on-surface-variant font-medium mb-4 font-body">
+              <span class="material-symbols-outlined text-[14px]" style="color: #1a3a6e;">calendar_today</span>
               {item.date}
             </div>
-            <h3 class="font-headline text-xl font-bold mb-3 group-hover:text-primary transition-colors leading-tight">
+            
+            <h3 class="font-headline text-lg font-bold mb-3 leading-snug group-hover:text-primary transition-colors duration-300">
               {item.title}
             </h3>
-            <p class="text-on-surface-variant text-sm font-light mb-6 flex-grow">
+            <p class="text-on-surface-variant text-sm font-body font-light leading-relaxed mb-6 flex-grow">
               {item.summary}
             </p>
-            <a href="#" class="text-xs font-bold uppercase tracking-widest text-primary hover:text-secondary flex items-center gap-1 mt-auto w-fit">
+            
+            <a 
+              href="#" 
+              class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest group/link mt-auto w-fit font-body"
+              style={`color: ${item.categoryColor};`}
+            >
               Leer más
-              <span class="material-symbols-outlined text-[14px]">arrow_outward</span>
+              <span class="material-symbols-outlined text-[14px] group-hover/link:translate-x-0.5 transition-transform">arrow_outward</span>
             </a>
           </div>
         </article>
       ))}
     </div>
-    
-    <div class="mt-12 text-center md:hidden">
-      <a href="#" class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-primary hover:text-secondary transition-colors">
-        Ver todas las noticias
-        <span class="material-symbols-outlined text-sm">arrow_forward</span>
-      </a>
-    </div>
+
   </div>
 </section>

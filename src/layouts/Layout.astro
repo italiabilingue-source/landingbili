@@ -9,7 +9,7 @@ interface Props {
 
 const { 
 	title = "Instituto República de Italia | Concepción del Uruguay",
-	description = "Educación bilingüe integral desde el nivel inicial hasta el secundario en Concepción del Uruguay, Entre Ríos."
+	description = "Institución bilingüe con italiano en Concepción del Uruguay. Jardín, Primaria y Secundaria con formación integral, deportes, y certificaciones internacionales."
 } = Astro.props;
 ---
 
@@ -17,21 +17,25 @@ const {
 <html lang="es">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		
 		<!-- SEO -->
 		<title>{title}</title>
 		<meta name="description" content={description} />
+		<meta name="keywords" content="colegio bilingüe, italiano, Concepción del Uruguay, jardín, primaria, secundaria, deportes, Entre Ríos" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:type" content="website" />
 		
-		<!-- Fonts -->
+		<!-- Fonts: Playfair Display + Inter + Cormorant -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+		<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0" />
 	</head>
-	<body class="bg-surface text-on-surface font-body selection:bg-primary/20 selection:text-primary overflow-x-hidden">
+	<body class="bg-surface text-on-surface overflow-x-hidden">
 		<slot />
 		<WhatsAppFloat />
 	</body>
@@ -42,13 +46,66 @@ const {
 		scroll-behavior: smooth;
 	}
 	
+	* {
+		box-sizing: border-box;
+	}
+
 	.material-symbols-outlined {
 		font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
 		vertical-align: middle;
 	}
 
-	/* Adjusting for the "No-Line" rule */
 	section {
 		border: none !important;
 	}
+
+	/* Custom scrollbar */
+	::-webkit-scrollbar { width: 6px; }
+	::-webkit-scrollbar-track { background: #f1f1f1; }
+	::-webkit-scrollbar-thumb { background: #1a3a6e; border-radius: 3px; }
+	::-webkit-scrollbar-thumb:hover { background: #2558a8; }
 </style>
+
+<script>
+  // Scroll reveal observer
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+  document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => {
+    observer.observe(el);
+  });
+
+  // Animated counters
+  function animateCounter(el: HTMLElement) {
+    const target = parseInt(el.getAttribute('data-target') || '0');
+    const duration = 2000;
+    const step = target / (duration / 16);
+    let current = 0;
+    const timer = setInterval(() => {
+      current += step;
+      if (current >= target) {
+        current = target;
+        clearInterval(timer);
+      }
+      el.textContent = Math.floor(current) + (el.getAttribute('data-suffix') || '');
+    }, 16);
+  }
+
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
+        entry.target.classList.add('counted');
+        animateCounter(entry.target as HTMLElement);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  document.querySelectorAll('[data-target]').forEach(el => {
+    counterObserver.observe(el);
+  });
+</script>

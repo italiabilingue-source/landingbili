@@ -10,81 +10,117 @@ import academicImg from '../assets/school-front.jpg';
 const items = [
   {
     title: "Deportes",
-    description: "Actividades físicas, recreativas y competencias que fomentan el trabajo en equipo.",
+    description: "Fútbol, básquet, atletismo, natación y más disciplinas que forman el carácter y el trabajo en equipo.",
     image: sportsImg,
-    span: "lg:col-span-3"
-  },
-  {
-    title: "Comedor Estudiantil",
-    description: "Espacio de encuentro y alimentación saludable supervisada para nuestros alumnos.",
-    image: buffetImg,
-    span: "lg:col-span-3"
+    tag: "Actividad Física",
+    span: "lg:col-span-3 lg:row-span-2",
+    big: true
   },
   {
     title: "Educación Bilingüe",
-    description: "Inglés integrado desde sala de 3 años para una inmersión lingüística natural.",
+    description: "Italiano y español conviven de forma natural desde sala de 3. Certificaciones internacionales.",
     image: bilingualImg,
-    span: "lg:col-span-2"
+    tag: "Bilingüismo",
+    span: "lg:col-span-3",
+    big: false
   },
   {
-    title: "Extracurriculares",
-    description: "Talleres de arte, música y proyectos creativos para el desarrollo de talentos.",
+    title: "Comedor Saludable",
+    description: "Menú supervisado por nutricionistas para el bienestar de cada alumno.",
+    image: buffetImg,
+    tag: "Bienestar",
+    span: "lg:col-span-3",
+    big: false
+  },
+  {
+    title: "Talleres Creativos",
+    description: "Arte, teatro, música y proyectos interdisciplinarios para el desarrollo de los talentos.",
     image: extracurricularImg,
-    span: "lg:col-span-2"
+    tag: "Extracurricular",
+    span: "lg:col-span-2",
+    big: false
+  },
+  {
+    title: "Comunidad y Familia",
+    description: "Cercanía permanente con las familias y seguimiento personalizado.",
+    image: communityImg,
+    tag: "Comunidad",
+    span: "lg:col-span-2",
+    big: false
   },
   {
     title: "Formación Académica",
-    description: "Aprendizaje moderno con acompañamiento docente y herramientas digitales.",
+    description: "Herramientas digitales, laboratorio y docentes comprometidos con la excelencia.",
     image: academicImg,
-    span: "lg:col-span-2"
-  },
-  {
-    title: "Comunidad Educativa",
-    description: "Cercanía con las familias y seguimiento personalizado en cada etapa de crecimiento.",
-    image: communityImg,
-    span: "lg:col-span-6"
+    tag: "Educación",
+    span: "lg:col-span-2",
+    big: false
   }
 ];
 ---
 
-<section id="vida-escolar" class="py-16 bg-surface-container-low">
-  <div class="w-full px-4 lg:px-8 max-w-[120rem] mx-auto text-center mb-12">
-    <span class="text-secondary font-bold tracking-widest uppercase text-xs">Comunidad</span>
-    <h2 class="font-headline text-5xl md:text-6xl mt-2 mb-4 text-primary font-bold">Asi se vive en el colegio</h2>
-    <p class="text-on-surface-variant font-body font-light text-xl">Mucho más que aulas: un lugar donde cada día hacemos nuevos amigos y descubrimos el mundo.</p>
-    <div class="w-32 h-1 bg-secondary mx-auto mt-6"></div>
-  </div>
+<section id="vida-escolar" class="py-24 bg-on-surface text-white overflow-hidden">
+  <div class="max-w-[1400px] mx-auto px-6 md:px-10">
 
-  <div class="w-full px-4 lg:px-8 max-w-[120rem] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 lg:gap-8">
-    {items.map((item) => (
-      <div class={`group relative overflow-hidden rounded-md shadow-lg hover:shadow-2xl transition-shadow duration-500 bg-black min-h-[400px] md:min-h-[500px] ${item.span}`}>
-        <!-- Hero Image with Smooth Zoom -->
-        <div class="absolute inset-0 z-0 overflow-hidden">
-          <Image 
-            src={item.image} 
-            alt={item.title} 
-            class="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-110"
-          />
-          <!-- Dark Overlay for contrast -->
-          <div class="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition-colors duration-500 z-10"></div>
-          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent z-10"></div>
-        </div>
-
-        <!-- Content overlayed on image -->
-        <div class="absolute inset-x-0 bottom-0 p-8 md:p-12 z-20 text-white flex flex-col justify-end h-full">
-          <h3 class="font-headline text-3xl md:text-4xl mb-4 font-bold drop-shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-            {item.title}
-          </h3>
-          <p class="text-white/90 text-lg leading-relaxed md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 delay-100">
-            {item.description}
-          </p>
-        </div>
-
-        <!-- Decorative Archival Accents -->
-        <div class="absolute top-0 right-0 p-6 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-          <span class="material-symbols-outlined text-white text-3xl font-light">open_in_new</span>
-        </div>
+    <!-- Header -->
+    <div class="mb-16 reveal flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+      <div>
+        <div class="section-label mb-4" style="color: #2d9e47;">La vida en el colegio</div>
+        <h2 class="font-headline text-4xl md:text-5xl lg:text-6xl text-white leading-tight">
+          Así se vive en el<br/>
+          <span class="italic font-normal" style="font-family:'Cormorant Garamond',serif; color: #c0162a;">República de Italia</span>
+        </h2>
       </div>
-    ))}
+      <p class="text-white/50 font-body font-light max-w-xs text-sm leading-relaxed md:text-right">
+        Mucho más que aulas: un lugar donde cada día se hacen amigos nuevos y se descubre el mundo.
+      </p>
+    </div>
+
+    <!-- Masonry Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 lg:grid-rows-[340px_340px] gap-4 md:gap-5">
+      {items.map((item, i) => (
+        <div 
+          class={`group relative overflow-hidden rounded-2xl bg-slate-800 ${item.span} reveal delay-${Math.min(i * 100, 500)}`}
+          style={`min-height: ${item.big ? '500px' : '260px'};`}
+        >
+          <!-- Image -->
+          <div class="absolute inset-0 overflow-hidden">
+            <Image 
+              src={item.image} 
+              alt={item.title} 
+              class="w-full h-full object-cover transition-transform duration-[2s] ease-out group-hover:scale-110"
+            />
+            <!-- Layered overlays -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
+            <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-700"></div>
+          </div>
+
+          <!-- Tag pill -->
+          <div class="absolute top-5 left-5 z-10">
+            <span class="text-[10px] font-bold uppercase tracking-widest bg-white/10 backdrop-blur-md border border-white/15 text-white px-3 py-1.5 rounded-full font-body">
+              {item.tag}
+            </span>
+          </div>
+
+          <!-- Content bottom -->
+          <div class="absolute inset-x-0 bottom-0 p-7 z-10">
+            <h3 class={`font-headline font-bold text-white mb-2 leading-none transition-transform duration-500 group-hover:translate-y-0 ${item.big ? 'text-3xl md:text-4xl' : 'text-xl md:text-2xl'}`}>
+              {item.title}
+            </h3>
+            <p class="text-white/75 text-sm leading-relaxed font-body font-light max-w-md opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">
+              {item.description}
+            </p>
+          </div>
+
+          <!-- Corner arrow on hover -->
+          <div class="absolute top-5 right-5 z-10 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-2 group-hover:translate-x-0">
+            <div class="w-9 h-9 rounded-full bg-white/15 backdrop-blur-md border border-white/20 flex items-center justify-center">
+              <span class="material-symbols-outlined text-white text-[16px]">arrow_outward</span>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
   </div>
 </section>
