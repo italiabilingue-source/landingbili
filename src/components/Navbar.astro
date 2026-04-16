@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 import logoImage from '../assets/logo.jpg';
 
 const navLinks = [
+  { href: '/', label: 'Inicio' },
   { href: '/institucional', label: 'Institucional' },
   { href: '/niveles', label: 'Propuesta Educativa' },
   { href: '/admisiones', label: 'Admisiones' },
@@ -24,12 +25,7 @@ const navLinks = [
           height={44} 
           class="h-10 w-auto rounded-sm shadow-sm"
         />
-        <!-- Italian flag micro accent -->
-        <div class="absolute -bottom-1 -right-1 flex h-2 w-5 overflow-hidden rounded-sm shadow">
-          <div class="flex-1 bg-secondary"></div>
-          <div class="flex-1 bg-white"></div>
-          <div class="flex-1 bg-tertiary"></div>
-        </div>
+
       </div>
       <div class="flex flex-col leading-none">
         <span class="font-headline font-bold text-primary text-[15px] md:text-base tracking-tight group-hover:text-primary-light transition-colors">República de Italia</span>
