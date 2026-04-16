@@ -1,0 +1,25 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import ContactSection from '../components/ContactSection.astro';
+import Footer from '../components/Footer.astro';
+
+const title = "Contacto | Instituto República de Italia";
+const description = "Ponte en contacto con nosotros. Estamos en Concepción del Uruguay para resolver todas tus dudas sobre nuestra propuesta educativa.";
+---
+
+<Layout title={title} description={description}>
+  <Navbar />
+  
+  <main class="pt-10">
+    <ContactSection />
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  main {
+    overflow-x: hidden;
+  }
+</style>

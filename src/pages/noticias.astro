@@ -1,0 +1,25 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import News from '../components/News.astro';
+import Footer from '../components/Footer.astro';
+
+const title = "Noticias y Eventos | Instituto República de Italia";
+const description = "Mantente al día con las últimas novedades, eventos y logros de nuestra comunidad educativa.";
+---
+
+<Layout title={title} description={description}>
+  <Navbar />
+  
+  <main class="pt-10">
+    <News />
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  main {
+    overflow-x: hidden;
+  }
+</style>

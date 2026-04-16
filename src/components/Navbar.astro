@@ -3,12 +3,11 @@ import { Image } from 'astro:assets';
 import logoImage from '../assets/logo.jpg';
 
 const navLinks = [
-  { href: '#niveles', label: 'Niveles' },
-  { href: '#vida-escolar', label: 'Vida Escolar' },
-  { href: '#italiano', label: 'Italiano' },
-  { href: '#deportes', label: 'Deportes' },
-  { href: '#noticias', label: 'Noticias' },
-  { href: '#contacto', label: 'Contacto' },
+  { href: '/institucional', label: 'Institucional' },
+  { href: '/niveles', label: 'Propuesta Educativa' },
+  { href: '/admisiones', label: 'Admisiones' },
+  { href: '/noticias', label: 'Noticias' },
+  { href: '/contacto', label: 'Contacto' },
 ];
 ---
 
@@ -34,7 +33,7 @@ const navLinks = [
       </div>
       <div class="flex flex-col leading-none">
         <span class="font-headline font-bold text-primary text-[15px] md:text-base tracking-tight group-hover:text-primary-light transition-colors">República de Italia</span>
-        <span class="text-[9px] uppercase tracking-[0.22em] text-on-surface-variant font-semibold font-body hidden sm:block">Istituto Bilingue · Cdu</span>
+        <span class="text-[9px] uppercase tracking-[0.22em] text-on-surface-variant font-semibold font-body hidden sm:block">Instituto Bilingüe</span>
       </div>
     </a>
 
@@ -53,13 +52,7 @@ const navLinks = [
 
     <!-- Desktop CTA + Mobile Controls -->
     <div class="flex items-center gap-3">
-      <a 
-        href="#contacto" 
-        class="hidden md:inline-flex items-center gap-2 bg-primary text-white px-5 py-2.5 rounded text-xs font-bold uppercase tracking-wider hover:bg-primary-light transition-all duration-200 shadow-md hover:shadow-lg"
-      >
-        <span class="material-symbols-outlined text-[16px]">school</span>
-        Inscripciones
-      </a>
+
 
       <!-- Mobile hamburger -->
       <button 
@@ -87,16 +80,7 @@ const navLinks = [
         </a>
       ))}
     </div>
-    <div class="mt-6 pt-5 border-t border-outline-variant/15">
-      <a 
-        href="#contacto"
-        id="mobile-cta"
-        class="flex items-center justify-center gap-2 bg-primary text-white px-6 py-4 rounded font-bold uppercase tracking-widest text-sm w-full hover:bg-primary-light transition-colors"
-      >
-        <span class="material-symbols-outlined text-[18px]">school</span>
-        Solicitar Inscripción
-      </a>
-    </div>
+
   </div>
 </nav>
 
@@ -108,19 +92,23 @@ const navLinks = [
   const bar2 = document.getElementById('bar2');
   const bar3 = document.getElementById('bar3');
 
-  // Show / hide navbar on scroll
-  window.addEventListener('scroll', () => {
+  // Show / hide navbar on scroll (Hero specific behavior usually, but let's adapt)
+  const isHome = window.location.pathname === '/' || window.location.pathname === '/index.html';
+  
+  const handleNavVisibility = () => {
     if (!nav) return;
-    if (window.scrollY > 80) {
+    if (window.scrollY > 80 || !isHome) {
       nav.classList.remove('-translate-y-full', 'opacity-0');
       nav.classList.add('translate-y-0', 'opacity-100');
     } else {
       nav.classList.add('-translate-y-full', 'opacity-0');
       nav.classList.remove('translate-y-0', 'opacity-100');
-      // Close mobile menu on scroll to top
       if (mobileMenu) mobileMenu.classList.add('hidden');
     }
-  });
+  };
+
+  window.addEventListener('scroll', handleNavVisibility);
+  handleNavVisibility(); // Init on load
 
   // Toggle mobile menu
   let menuOpen = false;
@@ -134,6 +122,20 @@ const navLinks = [
     if (bar3) bar3.style.width = menuOpen ? '1.25rem' : '';
   });
 
+  // Highlight active link based on current path
+  const currentPath = window.location.pathname;
+  const navLinks = document.querySelectorAll('nav a');
+  
+  navLinks.forEach(link => {
+    const href = link.getAttribute('href');
+    if (href && href !== '/' && currentPath.includes(href)) {
+      link.classList.add('text-primary');
+      // For desktop underline
+      const underline = link.querySelector('span');
+      if (underline) underline.classList.add('scale-x-100');
+    }
+  });
+
   // Close menu on link click
   document.querySelectorAll('.mobile-nav-link, #mobile-cta').forEach(link => {
     link.addEventListener('click', () => {
@@ -145,25 +147,4 @@ const navLinks = [
       if (bar3) bar3.style.width = '';
     });
   });
-
-  // Highlight active section in nav
-  const sections = document.querySelectorAll('section[id]');
-  const navLinkEls = document.querySelectorAll('nav a[href^="#"]');
-
-  const activeObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        navLinkEls.forEach(a => {
-          const href = a.getAttribute('href');
-          if (href === `#${entry.target.id}`) {
-            a.classList.add('text-primary');
-          } else {
-            a.classList.remove('text-primary');
-          }
-        });
-      }
-    });
-  }, { threshold: 0.4 });
-
-  sections.forEach(s => activeObserver.observe(s));
 </script>

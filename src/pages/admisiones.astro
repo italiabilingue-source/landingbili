@@ -1,0 +1,25 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Admissions from '../components/Admissions.astro';
+import Footer from '../components/Footer.astro';
+
+const title = "Admisiones | Inscripciones abiertas 2026";
+const description = "Proceso de admisión paso a paso para formar parte de la familia del Instituto República de Italia. Inscripciones abiertas para todos los niveles.";
+---
+
+<Layout title={title} description={description}>
+  <Navbar />
+  
+  <main class="pt-10">
+    <Admissions />
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  main {
+    overflow-x: hidden;
+  }
+</style>

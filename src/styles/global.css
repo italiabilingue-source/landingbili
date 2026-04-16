@@ -150,7 +150,8 @@
   gap: 0.5rem;
 }
 
-.section-label::before {
+.section-label::before,
+.section-label::after {
   content: '';
   display: block;
   width: 24px;

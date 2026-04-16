@@ -3,7 +3,7 @@ import { Image } from 'astro:assets';
 import schoolFront from '../assets/school-front.jpg';
 ---
 
-<section class="relative min-h-[100svh] flex items-end overflow-hidden bg-slate-950">
+<section class="relative min-h-[100svh] flex items-center overflow-hidden bg-slate-950">
   
   <!-- Background Image -->
   <div class="absolute inset-0 z-0">
@@ -30,7 +30,7 @@ import schoolFront from '../assets/school-front.jpg';
   </div>
 
   <!-- Main Content -->
-  <div class="relative z-20 w-full max-w-7xl mx-auto px-8 md:px-12 pb-20 md:pb-28 pt-36">
+  <div class="relative z-20 w-full max-w-7xl mx-auto px-8 md:px-12 pb-16 pt-20">
     
     <!-- Eyebrow badge -->
     <div id="hero-badge" class="inline-flex items-center gap-2.5 mb-10 px-5 py-2.5 rounded-full border border-white/15 bg-white/5 backdrop-blur-md text-white">
@@ -59,19 +59,13 @@ import schoolFront from '../assets/school-front.jpg';
 
     <!-- CTA Row -->
     <div id="hero-ctas" class="flex flex-col sm:flex-row gap-4 sm:gap-5">
+
       <a 
-        href="#contacto" 
-        class="group inline-flex items-center justify-center gap-2.5 bg-white text-primary px-8 py-4.5 rounded font-bold text-sm uppercase tracking-widest hover:bg-surface transition-all duration-300 shadow-2xl hover:shadow-primary/20"
-      >
-        <span class="material-symbols-outlined text-[18px] group-hover:translate-x-0.5 transition-transform">school</span>
-        Inscripciones 2026
-      </a>
-      <a 
-        href="#vida-escolar"
-        class="inline-flex items-center justify-center gap-2.5 border-2 border-white/25 text-white px-8 py-4.5 rounded font-bold text-sm uppercase tracking-widest hover:bg-white/10 hover:border-white/50 transition-all duration-300 backdrop-blur-sm"
+        href="/niveles"
+        class="inline-flex items-center justify-center gap-2.5 bg-white text-primary px-8 py-4.5 rounded font-bold text-sm uppercase tracking-widest hover:bg-surface transition-all duration-300 shadow-2xl shadow-white/10"
       >
         <span class="material-symbols-outlined text-[18px]">explore</span>
-        Conocer el colegio
+        Propuesta Educativa
       </a>
     </div>
 
@@ -93,11 +87,7 @@ import schoolFront from '../assets/school-front.jpg';
     </div>
   </div>
 
-  <!-- Scroll indicator -->
-  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 opacity-60">
-    <span class="text-[10px] text-white uppercase tracking-widest font-body">Scroll</span>
-    <div class="w-px h-10 bg-gradient-to-b from-white to-transparent animate-pulse"></div>
-  </div>
+  <!-- Scroll indicator removed to prevent overlap with stats -->
 </section>
 
 <style>
